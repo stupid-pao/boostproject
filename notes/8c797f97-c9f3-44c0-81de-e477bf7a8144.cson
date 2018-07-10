@@ -1,0 +1,176 @@
+createdAt: "2018-06-19T23:31:00.013Z"
+updatedAt: "2018-06-27T07:41:57.412Z"
+type: "MARKDOWN_NOTE"
+folder: "017b0332744bf9fc983f"
+title: "centos7 安装docker"
+content: '''
+  docker
+  
+  docker轻量级虚拟机  开机几千个也ok
+  vmware 是重量级 
+  ![Screen Shot 2018-06-20 at 07.32.30.png](:storage/8c797f97-c9f3-44c0-81de-e477bf7a8144/915f6aea.png)
+  - docker 虚拟机共享一个linux 内核 ，并没有去独立运行一个操作系统
+  
+  ### docker 与云计算的关系
+  ![Screen Shot 2018-06-20 at 07.39.24.png](:storage/8c797f97-c9f3-44c0-81de-e477bf7a8144/92770b28.png)
+  
+  # centos7 安装docker
+  yum -y update
+  yum install -y docker
+  
+  ### docker 启动/停止
+  
+  service docker start/restart/stop
+  systemctl start docker.service
+  
+  ### docker 虚拟机管理命令
+  ![Screen Shot 2018-06-20 at 07.50.32.png](:storage/8c797f97-c9f3-44c0-81de-e477bf7a8144/b034fd8c.png)
+  
+  ### 配置加速器 daocloud
+  - linux: 
+  配置文件位置： `/etc/docker/daemon.json`
+  ```
+  curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://9fed7707.m.daocloud.io
+  ```
+  - maxos:
+  添加`<http://9fed7707.m.daocloud.io>`到 preference 的 deamon 的 registry mirrors 中
+  
+  
+  ### 常用命令
+  ```
+  docker search java
+  docker pull java
+  
+  docker save java > /home/java.tar.gz
+  docker load < /home/java.tar.gz
+  ```
+  >启动
+  >-it 启动一个交互界面
+  >`docker run -it --name myjava java bash`  
+  
+  > 端口映射 
+  > docker的8080映射到本地90000， 8085到9001
+  >`docker run -it --name myjava -p 9000:8080 -p 9001:8085 java bash` 
+  
+  >文件映射 
+  >-v 以冒号分割 前面写本机目录
+  > --privileged 意思是docker对本地文件有最高操作权限
+  >`docker run -it --name myjava -v /home/project:/soft --privileged java bash`
+  
+  `exit` 退出
+  
+  >给image重命名      `docker tag old_name new_name` 
+  ```
+  docker pause name
+  docker unpause name 
+  docker stop name
+  docker start -i name
+  ```
+  >创建内部网段
+  ```
+  docker network create net1
+  docker network create --subnet=172.18.0.0/24 net1
+  docker network inspect net1
+  docker network rm net1
+  docker network ls
+  ```
+  >docker卷
+  ```
+  docker volume create --name v1
+  docker inspect v1
+  ```
+  > ## 创建pxc容器
+  > `docker pull percona/percona-xtradb-cluster`
+  - -d => 后台运行
+  - CLUSTER_NAME => 集群名字
+  - XTRABACKUP => 数据库同步密码
+  - --name => 容器名字
+  - 最后pxc 镜像名字
+  ```
+  docker run -d -p 3306:3306 --net=net1 --ip 172.18.0.2 --name=node1 -v v1:/var/lib/mysql -e CLUSTER_NAME=PXC -e MYSQL_ROOT_PASSWORD=123456 -e MYSQL_PROXY_PASSWORD=abc123456 --privileged pxc
+  
+  
+  ```
+  ⚠️如果 要加入集群 要加参数 `CLUSTER_JOIN=name` 这里的name 为node1
+  映射的ip port 要不同
+  ⚠️创建pxc 的ip 要用 --subnet 指定后的静态ip
+  
+  - 创建其他集群代码
+  
+  ⚠️几个不同点
+  ⚠️ 阿里云的端口要打开
+  ```
+  docker run -d -p 3307:3306 \\
+  -v v2:/var/lib/mysql \\
+  -e MYSQL_ROOT_PASSWORD=123456 \\
+  -e CLUSTER_NAME=PXC \\
+  -e XTRABACKUP_PASSWORD=123456 \\
+  -e CLUSTER_JOIN=node1 \\
+  --privileged --name=node2 --net=net1 --ip 172.18.0.3 \\
+  pxc
+  ```
+  >❓ 疑问 为什么之后的都不用 提前建好 内部网段ip 和 docker卷了吗? 只有第一次要这个操作吗？
+  >>因为都用的net1 
+  >>volume 不需要提前创建，现创建就可以
+  ```
+  docker run -d -p 3310:3306 \\
+  -v v5:/var/lib/mysql \\
+  -e MYSQL_ROOT_PASSWORD=123456 \\
+  -e CLUSTER_NAME=PXC \\
+  -e XTRABACKUP_PASSWORD=123456 \\
+  -e CLUSTER_JOIN=node1 \\
+  --privileged --name=node5 --net=net1 --ip 172.18.0.6 \\
+  pxc
+  ```
+  [docker 搭建 MySQL 集群（一）](http://blog.leanote.com/post/lhp9916/MySQL-%E9%9B%86%E7%BE%A4)
+  
+  - docker run 启动失败
+  
+      
+      docker logs 容器名/容器id
+      docker logs --tail 10 -tf 容器名/容器id
+      -- 看失败原因
+  
+  ### haproxy 负载均衡
+  
+  - 运行haproxy 镜像，容器提示找不到 haproxy.cfg 配置文件
+  因为haproxy启动前提是必须有.cfg配置文件
+  
+      
+      解决方法 
+      
+      为容器挂载haproxy.cfg 配置文件
+  
+      docker run -tid -P \\
+      -v /home/soft/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro \\
+      haproxy
+      
+       
+  - 下面这种方式是映射宿主机haproxy文件夹到docker的haproxy下，所以要把.cfg文件放一份到宿主机的haproxy中去
+  - 8888 端口 是haproxy的监控后台
+  
+  
+      docker run -it -d -p 4001:8888 -p 4002:3306 \\
+      -v /home/soft/haproxy:/usr/local/etc/haproxy \\
+      --name h1 --privileged --net=net1 \\
+      --ip 172.18.0.7 \\
+      haproxy
+      
+  - ⚠️ .cfg文件里的 keepalive 心跳包 需要一个普通用户 约定为haproxy
+  
+  
+      所以我们要去数据库创建这个用户
+      CREATE USER 'haproxy'@'%' IDENTIFIED BY '';
+      
+  - #进入h1容器，启动Haproxy
+  
+  
+      docker exec -it h1 bash 
+      haproxy -f /usr/local/etc/haproxy/haproxy.cfg
+      
+  - 查看8888端口的 后台管理界面 --参数都可以在.cfg里改
+  [http://47.98.151.193:4001/dbs](http://47.98.151.193:4001/dbs)
+'''
+tags: []
+isStarred: false
+isTrashed: false

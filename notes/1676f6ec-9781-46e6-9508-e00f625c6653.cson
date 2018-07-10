@@ -1,0 +1,21 @@
+createdAt: "2018-06-19T23:06:12.673Z"
+updatedAt: "2018-06-19T23:18:36.598Z"
+type: "MARKDOWN_NOTE"
+folder: "87c8bf19ffd2b85c41bc"
+title: "目录结构"
+content: '''
+  目录结构
+  
+  
+  ![Screen Shot 2018-06-20 at 07.07.07.png](:storage/1676f6ec-9781-46e6-9508-e00f625c6653/1194345b.png)![Screen Shot 2018-06-20 at 07.14.13.png](:storage/1676f6ec-9781-46e6-9508-e00f625c6653/92eb7da2.png)
+  
+  读权限 r => 4
+  w => 2
+  x => 1
+  - 更改文件权限
+  chmod 700 file
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false

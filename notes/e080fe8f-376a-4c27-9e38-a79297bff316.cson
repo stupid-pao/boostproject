@@ -1,0 +1,27 @@
+createdAt: "2018-06-15T04:46:53.746Z"
+updatedAt: "2018-06-15T05:06:26.916Z"
+type: "MARKDOWN_NOTE"
+folder: "87c8bf19ffd2b85c41bc"
+title: "ssr + bbr  一键脚本"
+content: '''
+  ssr + bbr  一键脚本
+  
+  ssr :beers:
+  ```
+  wget -N --no-check-certificate https://softs.fun/Bash/ssr.sh && chmod +x ssr.sh && bash ssr.sh
+  ```
+  bbr:beers:
+  ```
+  wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
+  ```
+  ```
+  chmod +x bbr.sh
+  ./bbr.sh
+  ```
+  
+  
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false

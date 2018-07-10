@@ -1,0 +1,39 @@
+createdAt: "2018-06-19T09:39:50.919Z"
+updatedAt: "2018-07-02T07:38:09.963Z"
+type: "SNIPPET_NOTE"
+folder: "ad6154a9448de75c2a2e"
+title: "如何自定义xadmin的字段"
+description: '''
+  如何自定义xadmin的字段
+  
+'''
+snippets: [
+  {
+    name: "自定义xadmin字段"
+    mode: "Python"
+    content: '''
+      class DeliveryAdmin(object):
+          list_display = [
+              'user',
+              'career',
+              'add_time',
+              'career_name',
+          ]
+      
+          def career_name(self, obj):
+              car_id = obj.career_id
+              instance = Career.objects.filter(pk=car_id)
+              instance = instance[0]
+              get_instance = Company.objects.filter(pk=instance.company_id)
+              get_instance = get_instance[0]
+              return get_instance.chinese_name
+      
+          career_name.short_description = u'公司名'
+    '''
+  }
+]
+tags: [
+  "xadmin"
+]
+isStarred: false
+isTrashed: false

@@ -1,0 +1,105 @@
+createdAt: "2018-06-15T04:08:15.817Z"
+updatedAt: "2018-07-05T03:18:16.693Z"
+type: "MARKDOWN_NOTE"
+folder: "ad6154a9448de75c2a2e"
+title: "Django-restframework 框架 整理"
+content: '''
+  Django-restframework 框架 整理
+  
+  
+  - drf 可以通过外键查询相关各种字段 字段名用 `__` 连接 name 和 foriengkey name（在很多情况下这种方式都用的到）
+  - get_object_or_404 的用法
+      
+      
+      get_object_or_404(klass, *args, **kwargs)
+      
+  - klass
+      接受一个 Model 类，Manager 或 QuerySet 实例，表示你要对该对象进行查询。
+  
+  - **kwargs
+      查询条件，格式需要被 get() 和 filter() 接受。
+  
+  - 返回值
+  
+      用特定查询条件获取某个对象，成功则返回该对象实例
+  
+  
+  ***
+  ## serializer 相关的 :beers:
+  - source
+  >list 展示 choice 里的value 字段  
+  >> serializer  里定义新字段（只读） 设置 source = get_**_display  => **代表choice所属具体字段名
+  
+  >`source = '*'` 用于显示嵌套显示
+  >`phone = serializers.CharField(source='profile.phone', read_only=True)`直接查根外键相关联字段 只读
+  
+  - SerializerMethodField
+  通过这个方法可以自定义显示出来的各种想显示的东西
+  
+  ```
+   desensitization_phone = serializers.SerializerMethodField()
+   
+   def get_desensitization_phone(self, obj):
+      return obj.mobile[0:3] + "****" + obj.mobile[-4:]
+  ```
+  
+  - serializer 获取 request 参数的方法
+  `self.context['request'].query_params`
+  
+  - serializer .create()嵌套表示的方法
+  - [Serializers - Django REST framework](http://www.django-rest-framework.org/api-guide/serializers/)
+  ```
+  class UserSerializer(serializers.ModelSerializer):
+      profile = ProfileSerializer()
+  
+      class Meta:
+          model = User
+          fields = ('username', 'email', 'profile')
+  
+      def create(self, validated_data):
+          profile_data = validated_data.pop('profile')
+          user = User.objects.create(**validated_data)
+          Profile.objects.create(user=user, **profile_data)
+          return user
+  ```
+  - 编写.update()嵌套表示的方法
+  查看 serializer 文档
+  [drf 代码](:note:0454bd02-95b7-466f-a806-54db00a14215)
+  
+  - 
+   
+  
+  ***
+  ## View 相关 :beers:
+  
+  - url请求具体实例 指定参数
+  viewset  里面  `lookup_field = ""`  或者 `def get_object(self):`
+  
+  
+      get_object(self)
+      
+  - 返回应该用于详细视图的对象实例。默认使用lookup_field参数来过滤基本查询集。可以重写以提供更复杂的行为，例如基于多个URL kwarg的对象查找。
+  例如：
+  ```
+      def get_object(self):
+          queryset = self.get_queryset()
+          filter = {}
+          for field in self.multiple_lookup_fields:
+              filter[field] = self.kwargs[field]
+  
+          obj = get_object_or_404(queryset, **filter)
+          self.check_object_permissions(self.request, obj)
+          return obj
+  ```
+  
+  ***
+  
+  ## 报错
+  
+  - index out of range
+  一般都是数据没查到
+  本质： 取为空的数组
+'''
+tags: []
+isStarred: false
+isTrashed: false

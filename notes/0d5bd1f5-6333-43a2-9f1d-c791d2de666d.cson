@@ -1,0 +1,53 @@
+createdAt: "2018-06-27T03:11:57.954Z"
+updatedAt: "2018-07-10T03:51:03.562Z"
+type: "MARKDOWN_NOTE"
+folder: "ef2d6ebbfc00bb651888"
+title: "pycharm"
+content: '''
+  # pycharm
+  
+  [Mac下PyCharm快捷键大全 - CSDN博客](https://blog.csdn.net/qq_18863573/article/details/74910975)
+  - 两下 shift  搜索
+  切换
+  - `command + ~`   pycharm 各个项目切换
+  - 'contrl + tab'  pycharm 一个项目各个py文件切换
+  
+  - `command + shift`  上下
+  - `alt + enter` 自动处理
+  - `alt + '`     自动补全提示  => 第二次按 显示了无法访问的类和成员以及静态字段和方法  
+  - `shift + command + u` 切换单词大小写
+  - `alt + up/down箭头`    扩大/缩小光标选中范围
+  - `ctrl + o`     重写当前继承类的方法
+  - `command + p`  Parameter info (whith in method call arguments) method 中的关键字参数提示
+  - `command + shift +v` 历史粘贴板
+  - `shift + enter` 任意位置换行
+  - `command + shift + 8`  竖向编辑模式
+  
+  
+  navigation
+  - `command + e`  快速打开最近编辑过的文件
+  - `command + y`   查看具体方法缩略代码
+  - 'command + l'   go to line
+  
+  Debugging
+  - `F8` 进入下一步，如果当前行断点是一个方法，则不进入当前方法体内
+  - `F7` 进入下一步，如果当前行断点是一个方法，则进入当前方法体内，如果该方法体还有方法，则不会进入该内嵌的方法中
+  - `⌘⌥R` 恢复程序运行，如果该断点下面代码还有断点则停在下一个断点上
+  - 
+  - `⇧F7` 智能步入，断点所在行上有多个方法调用，会弹出进入哪个方法
+  - `⇧F8` 跳出
+  - `⌥F9` 运行到光标处，如果光标前有其他断点会进入到该断点
+  - `⌥F8` 计算表达式（可以更改变量值使其生效）
+  - `⌘F8` 切换断点（若光标当前行有断点则取消断点，没有则加上断点）
+  - `⌘⇧F8` 查看断点信息
+  
+  
+  <br>
+  <br>
+  <br>
+  
+  ![IntelliJIDEA_ReferenceCard-2 (dragged).png](:storage/0d5bd1f5-6333-43a2-9f1d-c791d2de666d/abb576fe.png)[IntelliJIDEA_ReferenceCard.pdf](:storage/0d5bd1f5-6333-43a2-9f1d-c791d2de666d/dfcbe39d.pdf)
+'''
+tags: []
+isStarred: false
+isTrashed: false

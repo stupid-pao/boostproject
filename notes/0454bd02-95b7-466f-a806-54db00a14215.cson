@@ -1,0 +1,55 @@
+createdAt: "2018-07-02T07:38:14.383Z"
+updatedAt: "2018-07-04T03:19:11.985Z"
+type: "SNIPPET_NOTE"
+folder: "ad6154a9448de75c2a2e"
+title: "drf 代码"
+description: "drf 代码"
+snippets: [
+  {
+    name: "drf 传递kwargs 到 serializer 实现 添加不存在的新字段.py"
+    mode: "Python"
+    content: '''
+      # extra_kwargs该选项是一个字典，将字段名称映射到关键字参数字典
+      
+      class CreateUserSerializer(serializers.ModelSerializer):
+          class Meta:
+              model = User
+              fields = ('email', 'username', 'password')
+              extra_kwargs = {'password': {'write_only': True}}
+      
+          def create(self, validated_data):
+              user = User(
+                  email=validated_data['email'],
+                  username=validated_data['username']
+              )
+              user.set_password(validated_data['password'])
+              user.save()
+              return user
+    '''
+  }
+  {
+    name: "drf 中过滤器的定制  -django_filters"
+    mode: "Python"
+    content: '''
+      import django_filters
+      #这个Q可以支持表查询，单下划线获取表字段，双下划线获取关联表，
+      from django.db.models import Q
+      #引入自己的模型
+      from app.item.models import ItemCategory
+      #自定义的过滤类，需要继承django_filter.rest_framework中的FilterSet类
+      class ItemCategoryFilter(django_filters.rest_framework.FilterSet):
+          Filter_category = django_filters.NumberFilter(method='category_filter', label='Filter_category')
+          #django_filters.NumberFilter类似，ModelForm中字段类型的控制
+          #其中method指向自己定义的过滤函数，label用于标识在测试API界面中的过滤界面字段，Filter_category控制查询字段
+          def category_filter(self, queryset, name, value):
+              #这里用到多级联表查询
+              return queryset.filter(Q(category_id=value)|Q(category__parent_id=value)|Q(category__parent__parent_id=value)|Q(category__parent__parent__parent_id=value))
+          class Meta:
+              model = ItemCategory
+              fields = []
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,20 @@
+createdAt: "2018-06-15T08:21:37.250Z"
+updatedAt: "2018-06-15T08:22:19.331Z"
+type: "MARKDOWN_NOTE"
+folder: "a7a8cfeade2972e4af52"
+title: "快捷键"
+content: '''
+  快捷键
+  ```
+  ctrl + z   =>   fg
+  
+  M + <   >
+  
+  ctrl + x  u    撤销
+  
+  
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false

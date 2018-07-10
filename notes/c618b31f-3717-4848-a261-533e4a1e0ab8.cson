@@ -1,0 +1,81 @@
+createdAt: "2018-06-15T03:16:34.786Z"
+updatedAt: "2018-06-16T02:53:19.935Z"
+type: "MARKDOWN_NOTE"
+folder: "7a741dc0d61163d82e36"
+title: "markdown 样式"
+content: '''
+  markdown 样式
+  
+  - [x]  选框样式
+  - [ ]  选框样式
+  
+  `引用字段`
+  
+  > 引文
+  > 引文样式
+  > 
+  
+  水平线的几种写法
+  * * *
+  ***
+  
+  ## 插入图片
+  ![](https://ws2.sinaimg.cn/large/006tKfTcgy1fsbprzuo7uj30xf0g3tds.jpg)
+  
+  
+  插入URL [能提高生产率的Markdown介绍](https://zhuanlan.zhihu.com/p/31874512)
+  
+  
+  ## 填写代码
+  ``` js
+  Render: function () {
+  Return (
+  <Div className = "commentBox">
+  <H1> Comments </ h1>
+  <CommentList data = {this.state.data} />
+  <CommentForm onCommentSubmit = {this.handleCommentSubmit} />
+  </ Div>
+  );
+  }
+  ```
+  
+  
+  ## 表格模式
+  | 水果     | 价钱 |
+  |:-----------|------:|
+  | 苹果      | 1$    |
+  | 葡萄     | 4$    |
+  | 橙子     | 2$    |
+  | 柠檬      | 1$    |
+  | 桃子      | 3$    | 
+  | 瓜      | 20$   |
+  
+  
+  ## 数学公式的写法
+  $$
+  \\mathrm{e}^{\\mathrm{i}\\theta} = \\cos(\\theta) + \\mathrm{i}\\sin(\\theta)
+  $$
+  
+  
+  $$a + b$$
+  
+  $$x_1$$
+  
+  $$x_1^2$$
+  
+  $$x^2_1$$
+  
+  $$x_{22}^{(n)}$$
+  
+  $${}^*x^*$$
+  
+  $$x_{balabala}^{bala}$$
+  
+  - 可以看到 x 元素的上标通过 ^ 符号后接的内容体现，下表通过 _ 符号后接的内容体现，多于一位是要加 {} 包裹的
+  
+  
+  [MarkDown 插入数学公式实验大集合 - 掘金](https://juejin.im/post/5a6721bd518825733201c4a2)
+'''
+tags: []
+isStarred: false
+isTrashed: false

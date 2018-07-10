@@ -1,0 +1,40 @@
+{
+  "folders": [
+    {
+      "key": "7a741dc0d61163d82e36",
+      "color": "#1278BD",
+      "name": "Default"
+    },
+    {
+      "key": "ad6154a9448de75c2a2e",
+      "color": "#30D5C8",
+      "name": "django-rest-framework"
+    },
+    {
+      "key": "87c8bf19ffd2b85c41bc",
+      "color": "#30D5C8",
+      "name": "Linux"
+    },
+    {
+      "key": "e55ea9d9468c793e012f",
+      "color": "#FF8E00",
+      "name": "mac"
+    },
+    {
+      "key": "ef2d6ebbfc00bb651888",
+      "color": "#3FD941",
+      "name": "python"
+    },
+    {
+      "key": "a7a8cfeade2972e4af52",
+      "color": "#B013A4",
+      "name": "emacs"
+    },
+    {
+      "key": "017b0332744bf9fc983f",
+      "color": "#30D5C8",
+      "name": "Docker"
+    }
+  ],
+  "version": "1.0"
+}

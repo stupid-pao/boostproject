@@ -1,0 +1,35 @@
+createdAt: "2018-06-27T05:00:55.851Z"
+updatedAt: "2018-06-29T02:20:51.724Z"
+type: "MARKDOWN_NOTE"
+folder: "e55ea9d9468c793e012f"
+title: "mac 快捷键"
+content: '''
+  # mac 快捷键
+  
+  
+  `shift + 光标上下左右`   控制选中范围
+  ***
+  <br />
+  
+  #### 拷贝秘钥内容命令   :beers:
+  ```
+  pbcopy < ~/.ssh/id_rsa.pub           
+  ```
+  linux  用 ```xsel  ```
+  ***
+  ***
+  
+  w + 回车  =>  查看tty数量
+  ***
+  ***
+  查看系统 cpu 
+  `sysctl -n machdep.cpu.brand_string`
+  ***
+  
+  #### `fn + delete` 刪除右邊文字
+  `ctrl + d`
+  ***
+'''
+tags: []
+isStarred: false
+isTrashed: false

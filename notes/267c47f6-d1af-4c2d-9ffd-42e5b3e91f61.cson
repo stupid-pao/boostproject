@@ -1,0 +1,129 @@
+createdAt: "2018-06-22T05:48:02.551Z"
+updatedAt: "2018-06-25T09:02:47.198Z"
+type: "MARKDOWN_NOTE"
+folder: "ef2d6ebbfc00bb651888"
+title: "包"
+content: '''
+  # 包
+  
+  ### docx 包
+  
+  - 对 table 和 subtable 的理解
+  
+  ***
+  ### selenium
+  仿浏览器自动化爬虫
+  ***
+  ### os 包
+                                   name
+      path_dir = os.path.abspath(__file__) # 获取当前.py文件的绝对路径
+      
+      os.path.dirname(path) # 获取文件的路径
+      
+      os.path.join(path, name) # 链接目录与文件名或目录
+      
+  
+  `os.sep` 可以取代操作系统特定的路径分割符。
+  `os.name` 字符串指示你正在使用的平台。比如对于 Windows，它是'nt'，而对于 Linux/Unix 用户，它是'posix'。
+  `os.getcwd()` 函数得到当前工作目录，即当前 Python 脚本工作的目录路径。
+  `os.getenv()` 和 os.putenv() 函数分别用来读取和设置环境变量。
+  `os.remove()` 函数用来删除一个文件。
+  `os.system()` 函数用来运行 shell 命令。
+  `os.linesep` 字符串给出当前平台使用的行终止符。例如，Windows 使用'\\r\\n'，Linux 使用'\\n'而 Mac 使用'\\r'。
+  `os.path.split()` 函数返回一个路径的目录名和文件名。
+  `os.path.isfile()` 和 os.path.isdir() 函数分别检验给出的路径是一个文件还是目录。
+  `os.listdir(dirname)`：列出 dirname 下的目录和文件
+  `os.curdir`: 返回但前目录（'.')
+  `os.chdir(dirname)`: 改变工作目录到 dirname
+  `os.path.isdir(name)`: 判断 name 是不是一个目录，name 不是目录就返回 false
+  `os.path.isfile(name)`: 判断 name 是不是一个文件，不存在 name 也返回 false
+  `os.path.exists(name)`: 判断是否存在文件或目录 name
+  `os.path.getsize(name)`: 获得文件大小，如果 name 是目录返回 0L
+  `os.path.abspath(name)`: 获得绝对路径
+  `os.path.normpath(path)`: 规范 path 字符串形式
+  `os.path.split(name)`: 分割文件名与目录（事实上，如果你完全使用目录，它也会将最后一个目录作为文件名而分离，同时它不会判断文件或目录是否存在）
+  `os.path.splitext()`: 分离文件名与扩展名
+  `os.path.join(path,name)`: 连接目录与文件名或目录
+  `os.path.basename(path)`: 返回文件名
+  `os.path.dirname(path):` 返回文件路径
+  
+  https://www.jianshu.com/p/d115286568e9
+  
+  
+  ***
+  ## pathlib 包
+  --  更好用的path处理工具
+  
+      from pathlib import Path
+             '/usr/local/'
+      p = Path(__file__)           # 路径实例化
+      
+      p_new = p / "raw_data.txt"   # 路径加 / 直接拼接
+      
+      Path.resolve()　　            #返回绝对路径
+      
+      改变路径:
+  
+          Path.with_name()　　#更改路径名称, 更改最后一级路径名
+  
+          Path.with_suffix()　　#更改路径后缀
+  
+          /　　#拼接路径
+  
+          Path.joinpath()　　#拼接路径
+  
+          Path.relative_to()　　#计算相对路径
+      
+      测试路径:
+  
+          Path.match()　　#测试路径是否符合pattern
+  
+          Path.is_dir()　　#是否是文件
+  
+          Path.is_absolute()　　#是否是绝对路径
+  
+          Path.is_reserved()　　#是否是预留路径
+  
+          Path.exists()　　#判断路径是否真实存在
+          
+      其他方法:
+  
+          Path.cwd()　　#返回当前目录的路径对象
+  
+          Path.home()　　#返回当前用户的home路径对象
+  
+          Path.stat()　　#返回路径信息, 同os.stat()
+  
+          Path.chmod()　　#更改路径权限, 类似os.chmod()
+  
+          Path.expanduser()　　#展开~返回完整路径对象
+  
+          Path.mkdir()　　#创建目录
+  
+          Path.rename()　　#重命名路径
+  
+          Path.rglob()　　#递归遍历所有子目录的文件
+      
+      
+      f = open(p_new)
+      
+      # 操作路径文件
+      p = Path('/usr/local/text.txt')
+      p.name     # text.txt
+      p.suffix   # .txt
+      p.stem     # text
+      
+      list(p.parents)
+      
+      p_parent = p.parent
+      for i in p_parent.iterdir():
+          print(i)
+      
+      
+       
+  
+  ***
+'''
+tags: []
+isStarred: false
+isTrashed: false

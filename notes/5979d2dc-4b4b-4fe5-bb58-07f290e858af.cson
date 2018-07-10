@@ -1,0 +1,53 @@
+createdAt: "2018-06-15T07:53:44.766Z"
+updatedAt: "2018-06-25T09:03:02.405Z"
+type: "MARKDOWN_NOTE"
+folder: "ef2d6ebbfc00bb651888"
+title: "python"
+content: '''
+  # python
+  
+  #### pip 更换豆瓣源 :beers:
+  
+  `pip install scrapy -i https://pypi.doubanio.com/simple`
+  
+  ***
+  
+  #### 类继承 super（）怎么用的 :beers:
+  [Python: super 没那么简单](https://mozillazg.com/2016/12/python-super-is-not-as-simple-as-you-thought.html#hidid4)
+  重点：
+  >单继承中super（）方法调父类方法时候self实例值得是子类的  
+  
+  >多继承中很复杂 看.mro() 方法显示的关系,多继承总是会向上层路径寻找方法,然后压栈再回来
+  
+  
+  ***
+  #### Python生成器generator之next和send运行流程
+  [Python生成器generator之next和send运行流程 - CSDN博客](http://blog.csdn.net/pfm685757/article/details/49924099)
+  ***
+  ## conda
+  - 升级
+  ```
+  conda update conda
+  conda update --all
+  conda clean --all
+  ```
+  - 新建env
+  ```
+  conda create --name fuck python=3.6 requests django 
+  ```
+  - 激活/退出
+  ```
+  source active name
+  source deactive name
+  ```
+  ```
+  conda list
+  conda search
+  conda info -e  全部env
+  conda install --name bunnies beautifulsoup4
+  ```
+  ***
+'''
+tags: []
+isStarred: false
+isTrashed: false

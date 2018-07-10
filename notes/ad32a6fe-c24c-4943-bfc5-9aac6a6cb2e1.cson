@@ -1,0 +1,29 @@
+createdAt: "2018-06-26T10:24:53.659Z"
+updatedAt: "2018-06-26T10:27:42.343Z"
+type: "MARKDOWN_NOTE"
+folder: "87c8bf19ffd2b85c41bc"
+title: "debian"
+content: '''
+  # debian
+  
+  
+  - 更换apt 源
+  
+  /etc/apt/sources.list
+  
+  ```
+  deb http://mirrors.aliyun.com/debian wheezy main contrib non-free
+  deb-src http://mirrors.aliyun.com/debian wheezy main contrib non-free
+  deb http://mirrors.aliyun.com/debian wheezy-updates main contrib non-free
+  deb-src http://mirrors.aliyun.com/debian wheezy-updates main contrib non-free
+  deb http://mirrors.aliyun.com/debian-security wheezy/updates main contrib non-free
+  deb-src http://mirrors.aliyun.com/debian-security wheezy/updates main contrib non-free
+  ```
+      apt-get update -y
+      
+      
+  ***
+'''
+tags: []
+isStarred: false
+isTrashed: false
