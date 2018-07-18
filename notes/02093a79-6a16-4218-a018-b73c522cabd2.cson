@@ -1,5 +1,5 @@
 createdAt: "2018-06-27T05:00:55.851Z"
-updatedAt: "2018-06-29T02:20:51.724Z"
+updatedAt: "2018-07-13T03:34:37.278Z"
 type: "MARKDOWN_NOTE"
 folder: "e55ea9d9468c793e012f"
 title: "mac 快捷键"
@@ -28,6 +28,11 @@ content: '''
   
   #### `fn + delete` 刪除右邊文字
   `ctrl + d`
+  ***
+  #### 查看ip归属地
+  
+      curl ip.cn
+      
   ***
 '''
 tags: []

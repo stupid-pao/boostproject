@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T04:08:15.817Z"
-updatedAt: "2018-07-05T03:18:16.693Z"
+updatedAt: "2018-07-12T09:36:15.379Z"
 type: "MARKDOWN_NOTE"
 folder: "ad6154a9448de75c2a2e"
 title: "Django-restframework 框架 整理"
@@ -93,6 +93,15 @@ content: '''
   ```
   
   ***
+  #### 解决 Django 「懒惰」的基本方法
+    
+    
+      queryset = queryset.prefetch_related('orders')  
+    
+  [如何优化 Django REST Framework 的性能？(DRF Developer必看) - CSDN博客](https://blog.csdn.net/pushiqiang/article/details/79560550)
+  
+  ***
+  
   
   ## 报错
   
