@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T04:08:15.817Z"
-updatedAt: "2018-07-12T09:36:15.379Z"
+updatedAt: "2018-07-25T10:29:03.350Z"
 type: "MARKDOWN_NOTE"
 folder: "ad6154a9448de75c2a2e"
 title: "Django-restframework 框架 整理"
@@ -26,14 +26,24 @@ content: '''
   
   ***
   ## serializer 相关的 :beers:
-  - source
-  >list 展示 choice 里的value 字段  
-  >> serializer  里定义新字段（只读） 设置 source = get_**_display  => **代表choice所属具体字段名
   
-  >`source = '*'` 用于显示嵌套显示
-  >`phone = serializers.CharField(source='profile.phone', read_only=True)`直接查根外键相关联字段 只读
+  > 在serialiser获取当前user
   
-  - SerializerMethodField
+      user = self.context['request'].user
+      
+  > serializer 获取 request 参数的方法
+  
+      self.context['request'].query_params
+  
+  > source
+  
+  - list 展示 choice 里的value 字段  
+  - serializer  里定义新字段（只读） 设置 source = get_**_display  => **代表choice所属具体字段名
+  
+  - `source = '*'` 用于显示嵌套显示
+  - `phone = serializers.CharField(source='profile.phone', read_only=True)`直接查根外键相关联字段 只读
+  
+  > SerializerMethodField
   通过这个方法可以自定义显示出来的各种想显示的东西
   
   ```
@@ -43,10 +53,9 @@ content: '''
       return obj.mobile[0:3] + "****" + obj.mobile[-4:]
   ```
   
-  - serializer 获取 request 参数的方法
-  `self.context['request'].query_params`
   
-  - serializer .create()嵌套表示的方法
+  
+  > serializer .create()嵌套表示的方法
   - [Serializers - Django REST framework](http://www.django-rest-framework.org/api-guide/serializers/)
   ```
   class UserSerializer(serializers.ModelSerializer):
@@ -66,14 +75,16 @@ content: '''
   查看 serializer 文档
   [drf 代码](:note:0454bd02-95b7-466f-a806-54db00a14215)
   
-  - 
+  
    
   
   ***
   ## View 相关 :beers:
   
-  - url请求具体实例 指定参数
-  viewset  里面  `lookup_field = ""`  或者 `def get_object(self):`
+  
+  > url请求具体实例 指定参数
+  
+  - viewset  里面  `lookup_field = ""`  或者 `def get_object(self):`
   
   
       get_object(self)
