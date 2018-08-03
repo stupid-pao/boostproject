@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T05:04:38.551Z"
-updatedAt: "2018-06-28T03:21:49.519Z"
+updatedAt: "2018-07-30T08:31:33.723Z"
 type: "MARKDOWN_NOTE"
 folder: "87c8bf19ffd2b85c41bc"
 title: "通用命令"
@@ -70,7 +70,10 @@ content: '''
   
   ***
   
+  ###  service 启动服务 的配置文件位置
   
+  
+      /etc/init.d/<应用名>
   
 '''
 tags: []

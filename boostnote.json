@@ -39,6 +39,11 @@
       "key": "bb715ec559eba04ceae1",
       "color": "#3FD941",
       "name": "speech"
+    },
+    {
+      "key": "8b6c03be07a4d01edcb8",
+      "color": "#E10051",
+      "name": "music"
     }
   ],
   "version": "1.0"
