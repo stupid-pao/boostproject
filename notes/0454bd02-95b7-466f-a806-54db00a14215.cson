@@ -1,5 +1,5 @@
 createdAt: "2018-07-02T07:38:14.383Z"
-updatedAt: "2018-08-02T05:33:53.041Z"
+updatedAt: "2018-08-03T07:11:23.083Z"
 type: "SNIPPET_NOTE"
 folder: "ad6154a9448de75c2a2e"
 title: "drf 代码"
@@ -47,35 +47,6 @@ snippets: [
           class Meta:
               model = ItemCategory
               fields = []
-    '''
-  }
-  {
-    name: " 嵌套外键 的create 方式"
-    mode: "Python"
-    content: '''
-      class CareerCreatSerializer(serializers.ModelSerializer):
-          """
-            嵌套外键 的create 方式
-          """
-      
-          address = AddressSerializer(many=True)
-      
-          class Meta:
-              model = Career
-              fields = "__all__"
-      
-          def create(self, validated_data):
-              address_date = validated_data.pop('address')
-              career = Career.objects.create(**validated_data)
-      
-              for item in address_date:
-                  address = Address(address=item['address'],
-                                    is_default=item['is_default'],
-                                    status=item['status'],
-                                    career=career)
-                  address.save()
-      
-              return career
     '''
   }
 ]

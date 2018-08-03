@@ -1,5 +1,5 @@
 createdAt: "2018-02-05T05:24:21.919Z"
-updatedAt: "2018-07-10T09:47:50.125Z"
+updatedAt: "2018-08-03T08:00:15.798Z"
 type: "MARKDOWN_NOTE"
 folder: "ad6154a9448de75c2a2e"
 title: "Welcome to Boostnote!"
@@ -35,4 +35,4 @@ content: '''
 '''
 tags: []
 isStarred: false
-isTrashed: false
+isTrashed: true
