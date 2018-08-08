@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T04:52:16.784Z"
-updatedAt: "2018-07-10T09:48:41.341Z"
+updatedAt: "2018-08-08T07:26:08.176Z"
 type: "MARKDOWN_NOTE"
 folder: "e55ea9d9468c793e012f"
 title: "mac 相关技巧总结"
@@ -21,28 +21,7 @@ content: '''
   - you_get
   
   
-  
   ***
-  
-  #### Time Machine 本地空间占用的问题 :beers:
-  
-  man 去查 ```tmutil```  命令
-  <br />
-  
-  
-  ***
-  <br />
-  
-  #### 拷贝秘钥内容命令   :beers:
-  ```
-  pbcopy < ~/.ssh/id_rsa.pub           
-  ```
-  linux  用 ```xsel  ```
-  ***
-  <br />
-  
-  
-  
   
   #### 通过正则表达式修改path  ，env设置当前环境变量  解决brew 与 anaconda $PATH冲突的问题  :beers:
   
