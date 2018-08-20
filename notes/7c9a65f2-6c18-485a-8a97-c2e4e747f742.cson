@@ -1,0 +1,25 @@
+createdAt: "2018-08-20T02:34:15.764Z"
+updatedAt: "2018-08-20T02:41:14.999Z"
+type: "MARKDOWN_NOTE"
+folder: "dfecd6fda1fd6351071c"
+title: "git 命令"
+content: '''
+  # git 命令
+  
+  
+  
+  > 指定本地 与 origin 的分支跟踪
+  > 
+  
+  - 如果要本地跟踪 origin 的master 分支的话
+  
+  
+      git branch --set-upstream master origin/<branch>
+      git push origin master / git pull origin master
+          
+      
+  - 用了这两条条命令后，就可以直接 `git pull`，`git push` 了
+'''
+tags: []
+isStarred: false
+isTrashed: false

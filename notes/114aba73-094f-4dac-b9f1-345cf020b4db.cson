@@ -1,5 +1,5 @@
 createdAt: "2018-06-19T09:39:50.919Z"
-updatedAt: "2018-07-02T07:38:09.963Z"
+updatedAt: "2018-08-14T10:12:13.724Z"
 type: "SNIPPET_NOTE"
 folder: "ad6154a9448de75c2a2e"
 title: "如何自定义xadmin的字段"
@@ -9,7 +9,7 @@ description: '''
 '''
 snippets: [
   {
-    name: "自定义xadmin字段"
+    name: "自定义显示xadmin字段"
     mode: "Python"
     content: '''
       class DeliveryAdmin(object):

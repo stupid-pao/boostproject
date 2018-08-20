@@ -1,8 +1,8 @@
 createdAt: "2018-06-15T08:21:37.250Z"
-updatedAt: "2018-06-15T08:22:19.331Z"
+updatedAt: "2018-08-17T02:20:12.699Z"
 type: "MARKDOWN_NOTE"
 folder: "a7a8cfeade2972e4af52"
-title: "快捷键"
+title: "新增窗口"
 content: '''
   快捷键
   ```
@@ -11,9 +11,80 @@ content: '''
   M + <   >
   
   ctrl + x  u    撤销
+  ```
+  > 撤销
+  > 
+      C-/
   
+  ```
+   C-<chr>  表示当输入字符 <chr> 时按住 CONTROL 键。
+            因此 C-f 就表示：按住 CONTROL 键再输入 f。
   
+   M-<chr>  表示当输入字符 <chr> 时按住 META（或 EDIT 或 ALT）键。
+            如果你的键盘上没有 META 、EDIT 或 ALT 键，用下述方法也等效：
+            先按一下 ESC 键然后放开，再输入 <chr>。我们用 <ESC> 来表示
+            ESC 键。
+  ```
   
+  > 要退出一个正在运行中的命令，请用
+  
+      C-g
+  
+  > 只留下当前窗口
+  > 
+  
+      C-x 1
+      
+  > 复制某一命令多少次
+      
+      C-u 数字 + 其他命令
+      
+      
+  ### 删除操作
+  
+  > C-d          删除光标后的一个字符
+  > 
+  >M-< DEL >      移除光标前的一个词
+  >       M-d          移除光标后的一个词
+  >       
+  >C-k          移除从光标到“行尾”间的字符
+  >        M-k          移除从光标到“句尾”间的字符
+  >        
+  
+  > 框选范围后删除
+  > 
+      C-@  启动标记
+      C-w  在第二标记位置删除
+      
+  > 召回
+  > 
+      C-y  召回 上一次的内容
+      M-y  召回 前几次的内容
+      
+  > 搜索命令
+  > 
+  
+      C-s  向前搜索 （多按几次跳转到下一个匹配）
+      C-r  向后搜索
+      
+      
+  > 多窗口
+  > 
+      # 新增窗口
+      C-x 2
+      # 切换光标缩在窗口
+      C-x o
+      # 关闭窗口
+      C-x 1
+      # 在一个新开窗格里打开文件 
+      C-x 4 C-f，紧跟着输入一个文件名，再用 <Return> 结束。
+      
+  >emacs 快速启动
+  
+      1.
+      emacs --daemon ; 之后每次用 emacsclient 启动; 保存 C-x #
+      2.
+      brew service start emacs 后台启动emacs 
 '''
 tags: []
 isStarred: false
