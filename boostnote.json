@@ -44,6 +44,11 @@
       "key": "8b6c03be07a4d01edcb8",
       "color": "#E10051",
       "name": "music"
+    },
+    {
+      "key": "dfecd6fda1fd6351071c",
+      "color": "#E10051",
+      "name": "git"
     }
   ],
   "version": "1.0"
