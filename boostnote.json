@@ -49,6 +49,16 @@
       "key": "dfecd6fda1fd6351071c",
       "color": "#E10051",
       "name": "git"
+    },
+    {
+      "key": "d4705c15d7340395641c",
+      "color": "#2BA5F7",
+      "name": "nginx"
+    },
+    {
+      "key": "f9505138f3674dd8641f",
+      "color": "#B013A4",
+      "name": "开发文档"
     }
   ],
   "version": "1.0"

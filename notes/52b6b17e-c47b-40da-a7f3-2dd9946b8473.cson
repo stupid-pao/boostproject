@@ -1,0 +1,443 @@
+createdAt: "2018-08-21T02:10:58.508Z"
+updatedAt: "2018-08-21T02:16:58.230Z"
+type: "MARKDOWN_NOTE"
+folder: "f9505138f3674dd8641f"
+title: "up1.4 内部版文档"
+content: '''
+  # up1.4 内部版文档
+  
+  
+  ##[http://116.62.78.192:8000/up/api/](http://116.62.78.192:8000/up/api/)
+  
+  > /company 
+  
+  GET
+  
+  - city field =>  address field （dict）
+  
+  >  /company/id
+  
+  GET
+  
+  - 只显示几个company 的相关字段，第二级career 显示此公司的全部机会
+  - 增加 have_deliver 字段，显示当前用户是否投递过此机会
+  
+  > /up/api/user_delivery/
+  
+  GET
+  
+  - 显示当前 user 的所有投递情况 
+  
+  POST
+  
+  - 用户投递机会，投递后同时 将此次用户投递信息写入DeliveryResume表 retrieve: 具体投递的记录status 展示0
+  
+  > /user_manager/
+  
+  > 内部版 会员管理
+  
+  -  GET:  list 所有投递用户
+  -  过滤：
+   	- 'userbase_ _education_ _type' 学历
+   		- ("specialist", "专科"),
+   		- ("undergraduate", "本科"),
+   		- ("master", "硕士"),
+   		- ("doctor", "博士"),
+   		- ("others", "其他"),
+   	-   'graduation_after' 从那年   =>  输入日期格式 '2018-09-09'
+   	-  'graduation_before' 到哪年 
+   	
+  `GET /up/api/user_manager/ 	`
+  		
+  ```
+  {
+      "count": 1,
+      "next": null,
+      "previous": null,
+      "results": [
+          {
+              "id": 5,
+              "last_login_time": "2018-08-09",
+              "reg_time": "2018-08-09",
+              "date_joined": "2018-08-09",
+              "major": "挖掘机",
+              "type": "doctor",
+              "type2": "博士",
+              "graduation_date": "18.08.09",
+              "school": "职晓大学",
+              "base_id": 1,
+              "last_login": "2018-08-09T16:57:24",
+              "is_superuser": false,
+              "username": "user1",
+              "first_name": "三扽三扽",
+              "last_name": "s df sf",
+              "email": "",
+              "is_staff": false,
+              "is_active": true,
+              "name": "user",
+              "gender": "female",
+              "mobile": "3213134654",
+              "last_login_ip": "0.0.0.0",
+              "validate_email": "unverify",
+              "validate_phone": "unbind",
+              "role": "user",
+              "openid": "j;lhkgjhgf",
+              "delivery_num": 5,
+              "vip_status": "normal",
+              "presenter": 0,
+              "photo": "https://server-nice.oss-cn-shanghai.aliyuncs.com/media%2Fuser_photo%2F2018-08-09%2Fphoto_test.jpeg?OSSAccessKeyId=LTAI59NKVHOgrynB&Expires=1536400994&Signature=Gd76fQEkfwe2jU1bXSKFvYXFlKY%3D",
+              "groups": [],
+              "user_permissions": []
+          }
+      ]
+  }
+  ```
+  - 字段对映中文
+  
+  | field | 对照中文 | 一个普通标题 |
+  | ---- | ------ | ------ |
+  |last_ login _time | 上次登陆时间 |
+  |reg_time | 注册时间
+  |graduation_date | 毕业时间
+  |major  |专业
+  |school| 毕业院校
+  |type2| 最高学历
+  |vip_status | 会员类型
+  |username | 用户名 
+  |name | 名字
+  
+  
+  
+  
+  
+  > /user_manager/id
+  >
+   
+  -  GET/ID : 查具体实例 的简历
+  
+  
+  > /back_user_base/base_id
+  > 
+  > 后台查看某个具体会员用户简历信息  
+  > 
+  > 访问url后面加 已经传过去的user的 base_id
+  > 
+  
+  	GET /up/api/back_user_base/1/
+  ```
+  {
+      "id": 1,
+      "education": [
+          {
+              "id": 1,
+              "school": {
+                  "id": "1",
+                  "name": "职晓大学",
+                  "country": "111abc",
+                  "city": "2222abc",
+                  "unique_id": "11",
+                  "rank": 1,
+                  "country_name": "上海",
+                  "city_name": "大宁"
+              },
+              "type_display": "博士",
+              "major": "挖掘机",
+              "type": "doctor",
+              "graduation_date": "18.08.09",
+              "user_base": 1
+          }
+      ],
+      "work_practice": [],
+      "project": [],
+      "school_practice": [],
+      "hobbies": [],
+      "awards": [],
+      "intention": [
+          {
+              "id": 1,
+              "city": {
+                  "code": "111",
+                  "father_code": "",
+                  "grand_father": "",
+                  "heading": "上海"
+              },
+              "industry": {
+                  "id": 1,
+                  "chinese_name": "养猪",
+                  "english_name": "pigs",
+                  "status": 1,
+                  "description": null,
+                  "unique_id": null,
+                  "is_hot": 0
+              },
+              "require_display": "社招全职",
+              "require": "social",
+              "go_work_time": "8",
+              "user_base": 1
+          }
+      ],
+      "gender": "男",
+      "name": "Lynn",
+      "city": "北京",
+      "mobile": "12312312311",
+      "email": "qwe@163.com",
+      "user": 5
+  }
+  ```
+  
+  > /back_pusher/
+  > 
+  > 内部版内推人 管理
+  
+   GET/POST
+   
+  - 获取内推人列表/新建内推人
+  - 过滤字段
+  	- resource= 来源
+  		- ('friends', '朋友介绍'),
+  		- ('colleague', '同事介绍'),
+  		-  ('initiative', '主动呼入'),
+  		-  ('active', '活动'),
+  		-  ('weichart', '微信群'),
+  		-  ('service', '服务顾问'),
+  		-  ('linkedin', '领英'),
+  		-  ('liepin', '猎聘'),
+  	- cooperation= 合作关系
+  		- ('contacted', '待联系'),
+  		-  ('potential', '潜在'),
+  		-   ('cooperation', '合作中'),
+  		-   ('refuse', '拒绝'),
+  		-   ('nocontacted', '未接通'),
+  		-   ('follow', '跟进中'),
+  		- ('invalid', '无效'),
+  		-  ('record', '已收录'),
+  	- company_ _ tire_level = 公司梯度
+  		- ("one", "第一梯度"),
+  		- ("two", "第二梯度"),
+  		- ("three", "第三梯度"),
+  		- ("four", "第四梯度"),
+  	- company_ _industry= 行业
+  	- relationship=  是否盟友
+  		- ('ordinary', '普通'),
+  		- ('friends', '盟友'),
+  		- ('unknow', '未知'),
+  
+  
+  ```
+  [
+      {
+          "id": 4,
+          "last_login_time": "2018-08-09",
+          "last_login": "2018-08-09",
+          "reg_time": "2018-08-09",
+          "date_joined": "2018-08-09",
+          "photo": null,
+          "password": "pbkdf2_sha256$36000$6OnzRyDZlkIv$TNLcqy8fbmh/Bqd7D7eHj15VnRgaPmgEDgzcQ87n8w0=",
+          "is_superuser": false,
+          "username": "pusher1",
+          "first_name": "pusher1",
+          "last_name": "pusher1",
+          "email": "",
+          "is_staff": false,
+          "is_active": true,
+          "name": "pusher1",
+          "gender": "female",
+          "mobile": "654654654",
+          "last_login_ip": "0.0.0.0",
+          "validate_email": "verify",
+          "validate_phone": "unbind",
+          "role": "pusher",
+          "is_hr": 0,
+          "position": "三军总司令",
+          "experience": "死党肌肤",
+          "resource": "colleague",
+          "cooperation": "contacted",
+          "relationship": "ordinary",
+          "seatphone": "352464565",
+          "email2": "sadf@qq.com",
+          "update_user": 1,
+          "company": 1,
+          "create_inner": 3,
+          "groups": [],
+          "user_permissions": []
+      }
+  ]
+  ```
+  
+  | field | 对照中文 | 一个普通标题 |
+  | ---- | ------ | ------ |
+  | name |姓名
+  company|公司
+  industry |行业
+  tire_level |梯度
+  position|职务
+  create_inner |渠道负责人
+  create_inner |线索提供人
+  resource |来源
+  cooperation |合作状态
+  relationship |关系程度
+  last_login_time |最近登陆时间
+  
+  
+  > /back_pusher/id
+  > 
+  > 查看具体内推人信息 并更新某字段
+  
+  	PUT /up/api/back_pusher/4/
+  	
+  	
+  
+  > /back_delivery/
+  > 
+  > 后台投递用户管理
+  
+  - 后台投递列表
+  - 过滤字段
+  	- user_status= 
+  		- ("to_do", "带推荐"),
+  		- ("to_connect", "以推荐"),
+         - ("to_interview", "面试"),
+         - ("offer", "录用"),
+         - ("failed", "不合适"),
+  	- 	vip_status=  vip等级
+  		- ('normal', '非VIP'),
+  		- ('vip', 'VIP'),
+  		- ('svip', 'SVIP'),
+  	-  career_type= 岗位类型
+  		- ("private", "民营"),
+  		- ("foreign", "外资"),
+  		- ("joint", "合资"),
+  		- ("state-owned", "国企"),
+  	-  tire_level= 公司梯度
+  		- ("one", "第一梯度"),
+  		- ("two", "第二梯度"),
+  		- ("three", "第三梯度"),
+  		- ("four", "第四梯度"),
+  	-  edu_most= 最高学历
+  		- ("specialist", "专科"),
+   		- ("undergraduate", "本科"),
+   		- ("master", "硕士"),
+   		- ("doctor", "博士"),
+   		- ("others", "其他"),
+  	-  delivery__career__career_city= 投递城市
+  		- 传城市 ID
+  
+  `GET /up/api/back_delivery/`
+  	
+  ```
+  {
+      "count": 1,
+      "next": null,
+      "previous": null,
+      "results": [
+          {
+              "id": 1,
+              "addtime": "2018-08-09",
+              "career_type": "日常实习",
+              "edu_most": "其他",
+              "tire_level": "第一梯度",
+              "user_status": "已投递-待处理（未查看）-已推荐",
+              "career_name": "carre_1",
+              "address": "大宁",
+              "pusher": "pusher1",
+              "user_name": "",
+              "vip_status": "normal",
+              "company_name": "职晓",
+              "city": "shanghai",
+              "edu_time": "2012-12-12",
+              "edu_school": "school",
+              "context_perpare": "{'xixixi': 'hahaha'}",
+              "hash": "123456"
+          }
+      ]
+  }
+  ```
+  
+  | field | 对照中文 | 一个普通标题 |
+  | ---- | ------ | ------ |
+  user_name |姓名
+  vip_status|会员类型
+  edu_most |最高学历
+  edu_school |毕业院校
+  company_name |投递企业
+  career_name|投递职位
+  career_type |机会类型
+  city|职位地点
+  addtime |投递时间
+  pusher |内推人
+  user_status |状态
+  
+  
+  > /up/api/back_delivery/id
+  > 
+  > 变更用户投递状态
+  
+  PUT
+  
+  - 不合适需要指出不合适信息，其他条件直接put 数字status
+  
+  ```
+  {
+      "user_status": null,
+      "unsuitable": ""
+  }
+  ```
+  
+  > /back_status/id(delivery)
+  > 
+  > 投递状态跟踪记录
+  
+  - id为delivery 的id
+  
+  `GET /up/api/back_status/1/`
+  
+  ```
+  {
+      "user_name": "",
+      "vip_status": "normal",
+      "company_name": "职晓",
+      "career_name": "carre_1",
+      "city": "shanghai",
+      "addtime": "2018-08-09T16:00:39",
+      "career_type": "日常实习",
+      "pusher": "pusher1",
+      "inner": "inner",
+      "statusrecord": [
+          {
+              "delivery": 1,
+              "manage_time": "2018-08-09T16:00:39",
+              "manage_people": 5,
+              "which_paltform": "内部版",
+              "status": "/ => 待推荐"
+          }
+      ],
+      "info_failed": {
+          "id": 1,
+          "reason": "无敌"
+      },
+      "info_interview": {
+          "id": 1,
+          "time": "12-12-12",
+          "location": "where",
+          "contect": "xxx",
+          "tel": "123",
+          "email": false
+      }
+  }
+  ```
+  
+  
+  | field | 对照中文 | 一个普通标题 |
+  | ---- | ------ | ------ |
+  info_failed| 失败信息
+  info_interview|面试信息
+  statusrecord| 变更状态记录
+  
+  
+  
+  
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,15 @@
+createdAt: "2018-08-21T08:37:10.888Z"
+updatedAt: "2018-08-21T08:37:45.015Z"
+type: "MARKDOWN_NOTE"
+folder: "ad6154a9448de75c2a2e"
+title: "orm 整理"
+content: '''
+  # orm 整理
+  
+  > 随机查询 并显示10条
+  > 
+      Career.objects.order_by('?')[:10]
+'''
+tags: []
+isStarred: false
+isTrashed: false

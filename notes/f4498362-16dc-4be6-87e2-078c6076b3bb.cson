@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T08:21:37.250Z"
-updatedAt: "2018-08-17T02:20:12.699Z"
+updatedAt: "2018-08-21T07:51:29.193Z"
 type: "MARKDOWN_NOTE"
 folder: "a7a8cfeade2972e4af52"
 title: "新增窗口"
@@ -11,6 +11,12 @@ content: '''
   M + <   >
   
   ctrl + x  u    撤销
+  
+  复制 M-w
+  
+  剪切 C-w
+  
+  粘贴 C-y
   ```
   > 撤销
   > 
