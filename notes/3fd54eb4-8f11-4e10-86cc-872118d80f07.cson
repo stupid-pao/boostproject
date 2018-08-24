@@ -1,5 +1,5 @@
 createdAt: "2018-08-21T08:37:10.888Z"
-updatedAt: "2018-08-21T08:37:45.015Z"
+updatedAt: "2018-08-21T09:28:11.720Z"
 type: "MARKDOWN_NOTE"
 folder: "ad6154a9448de75c2a2e"
 title: "orm 整理"
@@ -8,7 +8,9 @@ content: '''
   
   > 随机查询 并显示10条
   > 
-      Career.objects.order_by('?')[:10]
+      Career.objects.order_by('?',)[:10]
+      
+  - order_by() 可以加多条件
 '''
 tags: []
 isStarred: false

@@ -1,5 +1,5 @@
 createdAt: "2018-08-21T07:32:03.061Z"
-updatedAt: "2018-08-21T08:52:39.633Z"
+updatedAt: "2018-08-22T03:08:26.042Z"
 type: "MARKDOWN_NOTE"
 folder: "d4705c15d7340395641c"
 title: "配置篇"
@@ -37,6 +37,13 @@ content: '''
   }
   ```
   - 这里有一个SCRIPT_FILENAME变量，可能是由于历史原因fastcgi_params这个文件中是不包含该变量的，改变量的定义实际上是在fastcgi.conf文件中。所以把include这一行改为`include        fastcgi.conf;`
+  
+  > 关于 配置nginx用户的权限问题
+  > 
+  - /etc/nginx/nginx.conf 里面 例如用户为 www 的话
+     - user www www ;
+  - 配套 配置里 文件跟路径 root 的文件所属用户也是 www
+  - `/var/lib/nginx` 的所属用户 也要为 www
   
 '''
 tags: []

@@ -1,5 +1,5 @@
 createdAt: "2018-08-16T03:05:38.973Z"
-updatedAt: "2018-08-16T03:07:40.437Z"
+updatedAt: "2018-08-22T08:36:46.499Z"
 type: "MARKDOWN_NOTE"
 folder: "ef2d6ebbfc00bb651888"
 title: "相关问题"
@@ -11,12 +11,15 @@ content: '''
   > virtualenvwrapper 不支持 zsh
   > 
   
-      在添加了
+  - 在添加了
+  - 
       
       export WORKON_HOME=$HOME/.virtualenvs
+      
       source /usr/local/bin/virtualenvwrapper.sh
       
-      后 ，在添加一个指明wrapper 的启动python 版本
+  - 后 ，在添加一个指明wrapper 的启动python 版本
+  
       
       VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 '''
