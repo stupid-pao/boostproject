@@ -1,5 +1,5 @@
 createdAt: "2018-08-08T07:19:55.556Z"
-updatedAt: "2018-08-14T02:34:47.093Z"
+updatedAt: "2018-08-29T02:25:48.060Z"
 type: "MARKDOWN_NOTE"
 folder: "e55ea9d9468c793e012f"
 title: "mac 命令"
@@ -7,25 +7,25 @@ content: '''
   # mac 命令
   
   
-  > 查看某服务的pid :beers:
+  > #### 查看某服务的pid :beers:
   > 
       pgrep mongo
       
   - kill mongo 的不能用参数-9， 要用-2
   
   
-  > top查看所有进程 :beers:
+  > #### top查看所有进程 :beers:
   > 
   
       top
       
-  > 拷贝秘钥内容命令   :beers:
+  > #### 拷贝秘钥内容命令   :beers:
   ```
   pbcopy < ~/.ssh/id_rsa.pub           
   ```
   linux  用 ```xsel  ```
   
-  > Time Machine 本地空间占用的问题 :beers:
+  > #### Time Machine 本地空间占用的问题 :beers:
   > 
       man tmutil
       # 列出所有的备份文件
@@ -33,7 +33,7 @@ content: '''
       # 删除超过 1 Gigabyte 的文件
       tmutil thinlocalsnapshots / 1000000000
   
-  > 查看 `当前目录下` 文件占用空间命令
+  > #### 查看 `当前目录下` 文件占用空间命令
   
       du -sh *
       

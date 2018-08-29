@@ -1,30 +1,38 @@
 createdAt: "2018-07-02T07:38:14.383Z"
-updatedAt: "2018-08-03T07:11:23.083Z"
+updatedAt: "2018-08-29T02:35:37.329Z"
 type: "SNIPPET_NOTE"
 folder: "ad6154a9448de75c2a2e"
 title: "drf 代码"
 description: "drf 代码"
 snippets: [
   {
-    name: "drf 传递kwargs 到 serializer 实现 添加不存在的新字段.py"
+    name: "同一个url 细分子url"
     mode: "Python"
     content: '''
-      # extra_kwargs该选项是一个字典，将字段名称映射到关键字参数字典
+      class BackDeliveryManagerViewSet(mixins.ListModelMixin, mixins.UpdateModelMixin, viewsets.GenericViewSet):
+          """
+          后台投递管理
+          updaet  put url/id
+          """
+          queryset = DeliveryResume.objects.all()
+          pagination_class = BackPagination
+          filter_backends = (DjangoFilterBackend, filters.SearchFilter)
+          filter_class = BackDeliverManagerFilter
+          search_fields = ('user_name', 'edu_school', 'company_name', 'career_type', 'delivery__career__career_name')
       
-      class CreateUserSerializer(serializers.ModelSerializer):
-          class Meta:
-              model = User
-              fields = ('email', 'username', 'password')
-              extra_kwargs = {'password': {'write_only': True}}
+          def get_serializer_class(self):
+              if self.action == 'update':
+                  return BackDeliveryManageUpdateSerializer
       
-          def create(self, validated_data):
-              user = User(
-                  email=validated_data['email'],
-                  username=validated_data['username']
+              return BackDeliveryManageSerializer
+      
+          @action(methods=['get'], detail=False, url_path="baseinfo")
+          def get_info(self):
+              info_list = Delivery.objects.get_info_deliver()
+              return Response(
+                  info_list,
+                  status=status.HTTP_200_OK
               )
-              user.set_password(validated_data['password'])
-              user.save()
-              return user
     '''
   }
   {
@@ -47,6 +55,28 @@ snippets: [
           class Meta:
               model = ItemCategory
               fields = []
+    '''
+  }
+  {
+    name: "drf 传递kwargs 到 serializer 实现 添加不存在的新字段.py"
+    mode: "Python"
+    content: '''
+      # extra_kwargs该选项是一个字典，将字段名称映射到关键字参数字典
+      
+      class CreateUserSerializer(serializers.ModelSerializer):
+          class Meta:
+              model = User
+              fields = ('email', 'username', 'password')
+              extra_kwargs = {'password': {'write_only': True}}
+      
+          def create(self, validated_data):
+              user = User(
+                  email=validated_data['email'],
+                  username=validated_data['username']
+              )
+              user.set_password(validated_data['password'])
+              user.save()
+              return user
     '''
   }
 ]

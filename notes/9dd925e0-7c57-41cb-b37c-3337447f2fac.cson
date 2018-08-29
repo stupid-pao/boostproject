@@ -1,5 +1,5 @@
 createdAt: "2018-08-21T02:17:42.717Z"
-updatedAt: "2018-08-21T05:37:29.448Z"
+updatedAt: "2018-08-27T06:14:14.916Z"
 type: "MARKDOWN_NOTE"
 folder: "f9505138f3674dd8641f"
 title: "up1.4 用户版"
@@ -11,11 +11,11 @@ content: '''
   
   ## 用户版修改
   
-  > /company 
+  > ## /company 
   > 
-  > 还是以前的接口，以下字段有变动
+  > ## 还是以前的接口，以下字段有变动
   
-  GET
+  ## GET
   
   - city field =>  address field （dict）
   - career_count  在招职位
@@ -30,9 +30,9 @@ content: '''
       - address__city  城市
           - city_id
   
-  >  /company/id
+  >  # /company/id
   
-  GET
+  ## GET
   
   - 只显示几个company 的相关字段，第二级career 显示此公司的全部机会
   - 增加 have_deliver 字段，显示当前用户是否投递过此机会 0是未投递，1 是已投递
@@ -234,11 +234,11 @@ content: '''
       "address": "合肥"
   }
   ```
-  > /up/api/career/
+  > # /up/api/career/
   > 
-  > 机会列表
+  > # 机会列表
   
-  GET
+  ## GET
   
   - 字段示例
   
@@ -374,9 +374,9 @@ content: '''
   }
   ```
   
-  > /up/api/user_delivery/
+  > # /up/api/user_delivery/
   
-  GET
+  ## GET
   
   - 显示当前 user 的所有投递情况 
   - 过滤字段
@@ -406,14 +406,14 @@ content: '''
   ]
   ```
   
-  POST
+  ## POST
   
   - 用户投递机会，投递后同时 将此次用户投递信息写入DeliveryResume表 retrieve: 具体投递的记录status 展示0
   
   
-  > /up/api/user_delivery/id
+  > # /up/api/user_delivery/id
   
-  GET
+  ## GET
   
   具体投递的记录status 展示
   

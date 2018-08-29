@@ -1,42 +1,42 @@
 createdAt: "2018-08-21T02:10:58.508Z"
-updatedAt: "2018-08-23T10:38:36.919Z"
+updatedAt: "2018-08-29T06:27:47.025Z"
 type: "MARKDOWN_NOTE"
 folder: "f9505138f3674dd8641f"
-title: "up1.4 内部版文档"
+title: "内部版文档"
 content: '''
-  # up1.4 内部版文档
+  #  内部版文档
   
   
   ##[http://116.62.78.192:8000/up/api/](http://116.62.78.192:8000/up/api/)
   
-  > /company 
+  > # /company 
   
-  GET
+  ## GET
   
   - city field =>  address field （dict）
   
-  >  /company/id
+  > #  /company/id
   
-  GET
+  ## GET
   
   - 只显示几个company 的相关字段，第二级career 显示此公司的全部机会
   - 增加 have_deliver 字段，显示当前用户是否投递过此机会
   
-  > /up/api/user_delivery/
+  > # /up/api/user_delivery/
   
-  GET
+  ## GET
   
   - 显示当前 user 的所有投递情况 
   
-  POST
+  ## POST
   
   - 用户投递机会，投递后同时 将此次用户投递信息写入DeliveryResume表 retrieve: 具体投递的记录status 展示0
   
-  > /user_manager/
+  > # /user_manager/
   
-  > 内部版 会员管理
+  > # 内部版 会员管理
   
-  -  GET:  list 所有投递用户
+  ## GET:  list 所有投递用户
   -  过滤：
    	- 'userbase_ _education_ _type' 学历
    		- ("specialist", "专科"),
@@ -110,20 +110,33 @@ content: '''
   
   
   
-  > /user_manager/id
+  > # /user_manager/id
   >
    
-  -  GET/ID : 查具体实例 的简历
+  ### GET/ID : 查具体实例 的简历
+  
+  ###  PUT： 更改用户的会员等级
+  
+  	- ('normal', '非会员'),
+  	- ('vip', '标准版会员'),
+  	- ('svip', '尊享VIP会员'),
+  
+  	
+  ```
+  {
+      "vip_status": "svip"
+  }
+  ```
   
   
-  > /back_user_base/base_id
+  > # /back_user_base/base_id
   > 
-  > 后台查看某个具体会员用户简历信息  
+  > # 后台查看某个具体会员用户简历信息  
   > 
-  > 访问url后面加 已经传过去的user的 base_id
+  > # 访问url后面加 已经传过去的user的 base_id
   > 
   
-  	GET /up/api/back_user_base/1/
+  ### GET /up/api/back_user_base/1/
   ```
   {
       "id": 1,
@@ -185,11 +198,11 @@ content: '''
   }
   ```
   
-  > /back_pusher/
+  > # /back_pusher/
   > 
-  > 内部版内推人 管理
+  > # 内部版内推人 管理
   
-   GET/POST
+  ### GET/POST
    
   - 获取内推人列表/新建内推人
   - 过滤字段
@@ -221,6 +234,10 @@ content: '''
   		- ('ordinary', '普通'),
   		- ('friends', '盟友'),
   		- ('unknow', '未知'),
+  	- name 内推人
+      	- 直接传 姓名，配合内推人列表食用
+      - create_inner 负责人
+          - 传 id
   
   
   ```
@@ -279,17 +296,33 @@ content: '''
   last_login_time |最近登陆时间
   
   
-  > /back_pusher/id
+  > # /back_pusher/id
   > 
-  > 查看具体内推人信息 并更新某字段
+  > # 查看具体内推人信息 并更新某字段
   
   	PUT /up/api/back_pusher/4/
   	
-  	
   
-  > /back_delivery/
+  > # /up/api/pusher_name/
+  > # 获取pusher name
   > 
-  > 后台投递用户管理
+  
+  ```
+  
+  [
+      {
+          "value": "pusher_1"
+      },
+      {
+          "value": "pusher_2"
+      }
+  ]
+  ```
+  
+  
+  > # /back_delivery/
+  > 
+  > # 后台投递用户管理
   
   - 后台投递列表
   - 过滤字段
@@ -322,7 +355,7 @@ content: '''
   	-  delivery__career__career_city= 投递城市
   		- 传城市 ID
   
-  `GET /up/api/back_delivery/`
+  ### `GET /up/api/back_delivery/`
   	
   ```
   {
@@ -368,42 +401,51 @@ content: '''
   user_status |状态
   
   
-  > /up/api/back_delivery/id
+  > # /up/api/back_delivery/id
   > 
-  > 变更用户投递状态
+  ># 变更用户投递状态
   
-  PUT
+  ### PUT
   
   - 不合适需要指出不合适信息，其他条件直接put 数字status
   
   ```
   {
       "user_status": null,
-      "unsuitable": ""
+      # 不合适原因
+      "unsuitable": ""，
+      # 说明
+      "unsuitable_detail":"",
   }
   ```
   - user_status 几个状态
-      - (100, "已投递- / - /"),
-      - (101, "已投递- / - 待推荐"),
-      - (102, "已投递- / - noPDF"),
-      - (109, "已投递-/-不合适"),
-      - (112, "已投递-待处理（未查看）-已推荐"),
-      - (222, "被查看-待处理（已查看）-已推荐"),
-      - (292, "被查看-不合适-已推荐"),
-      - (332, "感兴趣-待沟通-已推荐"),
-      - (392, "感兴趣-不合适-已推荐"),
-      - (443, "面试-面试-面试"),
-      - (493, "面试-不合适-面试"),
-      - (666, "成功-录用-录用")
+      - [GET /up/api/back_delivery/baseinfo/](http://116.62.78.192:8000/up/api/back_delivery/baseinfo/)
+      - 展示 状态选项 接口
+       ```
+      [
+      {
+          "key": "待推荐",
+          "value": "001"
+      },
+      {
+          "key": "移动到待沟通",
+          "value": "332"
+      },
+      {
+          "key": "移动到不合适",
+          "value": "292"
+      }
+      ]
+      ```
   - 不合适直接写不合适原因
   
-  > /back_status/id(delivery)
+  > # /back_status/id(delivery)
   > 
-  > 投递状态跟踪记录
+  ># 投递状态跟踪记录
   
   - id为delivery 的id
   
-  `GET /up/api/back_status/1/`
+  ### `GET /up/api/back_status/1/`
   
   ```
   {
@@ -449,6 +491,40 @@ content: '''
   
   
   
+  > # /up/api/msgfaild_option/
+  > 
+  > # 失败原因具体选项
+  
+  ```
+  [
+      {
+          "id": 1,
+          "fail_details": "太帅"
+      },
+      {
+          "id": 2,
+          "fail_details": "太挫了"
+      },
+      {
+          "id": 3,
+          "fail_details": "长得像吴彦祖"
+      }
+  ]
+  ```
+  > # /up/api/inner_name/
+  > 
+  > # 后台 inner 筛选提供 列表
+  > 
+  ```
+  [
+      {
+          "value": "孙哭川"
+      },
+      {
+          "value": "孙笑川"
+      }
+  ]
+  ```
   
   
 '''

@@ -59,6 +59,11 @@
       "key": "f9505138f3674dd8641f",
       "color": "#B013A4",
       "name": "开发文档"
+    },
+    {
+      "key": "5f24c879e0da81cf158f",
+      "color": "#3FD941",
+      "name": "Database"
     }
   ],
   "version": "1.0"

@@ -1,26 +1,26 @@
 createdAt: "2018-06-15T05:04:38.551Z"
-updatedAt: "2018-08-22T03:15:57.007Z"
+updatedAt: "2018-08-29T02:27:10.804Z"
 type: "MARKDOWN_NOTE"
 folder: "87c8bf19ffd2b85c41bc"
 title: "通用命令"
 content: '''
-  通用命令
+  # 通用命令
   
-  #### 查看端口情况命令 :beers:
+  > #### 查看端口情况命令 :beers:
   
    `ss -tanlp` 查看所有启动网络端口的情况
    
    `ps aux|grep port/app` 查看某一端口或进程情况
    ***
    
-   #### systemctl :beers:
+   > #### systemctl :beers:
   `systemctl start/reload/stop/enable application`
    
   用` systemctl ` 启动的，关闭重启 就还要用这个操作，要path/bin 起的 用这个不能操作
   ***
   
   
-  #### screen :beers:
+  > #### screen :beers:
   ```
   screen -ls 查看几个screen窗口  
   screen -r screenID  进入某一个具体窗口 
@@ -29,14 +29,14 @@ content: '''
   ***
     
                      
-  #### 虚拟机用net 模式 与主机连接
+  > #### 虚拟机用net 模式 与主机连接
   [MAC VMWare Fusion网络设置](http://blog.csdn.net/nciasd/article/details/68499431)
    [虚拟机Nat模式下设置静态ip - CSDN博客](http://blog.csdn.net/clean_water/article/details/53024423)
    if cfg－ens33  配置里面加一个 DNS1=“vmnet 8 的网关地址”
    
    ***
    
-  #### 防火墙 :beers:
+  > #### 防火墙 :beers:
   
   - 查看状态
   
@@ -58,19 +58,19 @@ content: '''
       `firewall-cmd --permanent --list-services` 
                             
   ***
-  ### 查看linux 版本
+  > ### 查看linux 版本
   
       cat /etc/issue
       
   ***
-  ### 系统状态命令
+  > ### 系统状态命令
   
       top
       nmon
   
   ***
   
-  ###  service 启动服务 的配置文件位置
+  > ###  service 启动服务 的配置文件位置
   
   
       /etc/init.d/<应用名>

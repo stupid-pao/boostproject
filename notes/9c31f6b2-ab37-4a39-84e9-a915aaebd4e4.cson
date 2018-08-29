@@ -1,5 +1,5 @@
 createdAt: "2018-08-16T03:05:38.973Z"
-updatedAt: "2018-08-22T08:36:46.499Z"
+updatedAt: "2018-08-29T02:25:10.405Z"
 type: "MARKDOWN_NOTE"
 folder: "ef2d6ebbfc00bb651888"
 title: "相关问题"
@@ -8,7 +8,7 @@ content: '''
   
   
   
-  > virtualenvwrapper 不支持 zsh
+  > ### virtualenvwrapper 不支持 zsh
   > 
   
   - 在添加了
