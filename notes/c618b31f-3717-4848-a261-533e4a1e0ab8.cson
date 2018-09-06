@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T03:16:34.786Z"
-updatedAt: "2018-07-23T09:36:59.172Z"
+updatedAt: "2018-08-31T10:21:10.405Z"
 type: "MARKDOWN_NOTE"
 folder: "7a741dc0d61163d82e36"
 title: "markdown 样式"
@@ -75,6 +75,8 @@ content: '''
   
   
   [MarkDown 插入数学公式实验大集合 - 掘金](https://juejin.im/post/5a6721bd518825733201c4a2)
+  
+  > ### 给文字加上删除线，是这样 ~~Scratch this.~~
 '''
 tags: []
 isStarred: false

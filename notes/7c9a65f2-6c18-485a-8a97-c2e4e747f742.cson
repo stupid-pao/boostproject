@@ -1,5 +1,5 @@
 createdAt: "2018-08-20T02:34:15.764Z"
-updatedAt: "2018-08-20T02:41:14.999Z"
+updatedAt: "2018-09-03T01:29:40.946Z"
 type: "MARKDOWN_NOTE"
 folder: "dfecd6fda1fd6351071c"
 title: "git 命令"
@@ -8,7 +8,7 @@ content: '''
   
   
   
-  > 指定本地 与 origin 的分支跟踪
+  > ## 指定本地 与 origin 的分支跟踪
   > 
   
   - 如果要本地跟踪 origin 的master 分支的话

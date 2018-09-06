@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T04:52:16.784Z"
-updatedAt: "2018-08-08T07:26:08.176Z"
+updatedAt: "2018-09-01T12:53:46.215Z"
 type: "MARKDOWN_NOTE"
 folder: "e55ea9d9468c793e012f"
 title: "mac 相关技巧总结"
@@ -142,7 +142,7 @@ content: '''
   
       aria2c --max-overall-download-limit=300k -s10 -x10 'http://xx.com/xx'
       
-  ceuiyix
+  
   
       
   
