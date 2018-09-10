@@ -1,5 +1,6 @@
 createdAt: "2018-06-15T05:04:38.551Z"
 updatedAt: "2018-09-10T08:59:36.308Z"
+
 type: "MARKDOWN_NOTE"
 folder: "87c8bf19ffd2b85c41bc"
 title: "通用命令"
@@ -75,22 +76,31 @@ content: '''
   
       /etc/init.d/<应用名>
   
-  > 服务器增加字体
+  > ### 服务器增加字体
   > 
   [Linux CentOS 7 安装字体库 & 中文字体_Linux教程_Linux公社-Linux系统门户网站](https://www.linuxidc.com/Linux/2016-09/135548.htm)
   
-  > 更改 文件所属用户和组
+  > ### 更改 文件所属用户和组
   > 
       chown -R <user>:<group> <filename> 
       
   - -R  递归
       
-  > 更改文件夹权限 775
+  > ### 更改文件夹权限 775
   > 
       chown -R 775 <filename>
       
-      
-   
+
+  > ### 查看网关
+  > 
+    
+      ip route show
+    
+  > ### 查看dns
+  > 
+  
+      cat /etc/resolv.conf
+
 '''
 tags: []
 isStarred: false
