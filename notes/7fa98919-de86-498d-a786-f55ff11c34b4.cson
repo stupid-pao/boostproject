@@ -1,5 +1,5 @@
 createdAt: "2018-08-08T07:19:55.556Z"
-updatedAt: "2018-08-29T02:25:48.060Z"
+updatedAt: "2018-09-07T07:40:13.240Z"
 type: "MARKDOWN_NOTE"
 folder: "e55ea9d9468c793e012f"
 title: "mac 命令"
@@ -40,7 +40,9 @@ content: '''
       # 这里面有app的缓存文件
       ~/Library/Containers
   
-  
+  > #### 查看 磁盘 命令
+  > 
+      diskutil
   
 '''
 tags: []

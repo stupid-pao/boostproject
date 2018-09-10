@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T05:04:38.551Z"
-updatedAt: "2018-08-29T02:27:10.804Z"
+updatedAt: "2018-09-10T08:59:36.308Z"
 type: "MARKDOWN_NOTE"
 folder: "87c8bf19ffd2b85c41bc"
 title: "通用命令"
@@ -90,6 +90,7 @@ content: '''
       chown -R 775 <filename>
       
       
+   
 '''
 tags: []
 isStarred: false
