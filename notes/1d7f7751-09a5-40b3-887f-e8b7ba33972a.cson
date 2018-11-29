@@ -1,0 +1,26 @@
+createdAt: "2018-09-17T05:03:20.627Z"
+updatedAt: "2018-09-17T08:13:44.109Z"
+type: "MARKDOWN_NOTE"
+folder: "26af1c9430c2430a4f2b"
+title: "csgo"
+content: '''
+  # csgo
+  
+  > #### 动态改名字
+  
+  
+  把方向键 a 换成 ws 和 d，分别对应把原先的 +moveleft 改成 +forward，+back，+moveright，后面的cl_clanid后面空一格之后加上自己的组id数字即可
+  ps. 左键是的代码是 mouse1，对应的开火是 +attack
+  右键是 mouse2，对应 +attack2
+  换弹是 r， 对应是 +reload
+  
+      bind "a" "+moveleft; cl_clanid xxx" 
+      
+  其他名字去 `去csgo的cfg文件里看`
+  
+  
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false

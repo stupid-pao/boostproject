@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T07:53:44.766Z"
-updatedAt: "2018-06-25T09:03:02.405Z"
+updatedAt: "2018-09-19T05:36:47.907Z"
 type: "MARKDOWN_NOTE"
 folder: "ef2d6ebbfc00bb651888"
 title: "python"
@@ -45,7 +45,12 @@ content: '''
   conda search
   conda info -e  全部env
   conda install --name bunnies beautifulsoup4
+  
   ```
+  - ## conda 使用原版镜像
+  
+  
+      conda config --remove-key channels
   ***
 '''
 tags: []

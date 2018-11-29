@@ -1,0 +1,20 @@
+createdAt: "2018-10-30T08:32:47.931Z"
+updatedAt: "2018-10-30T08:33:35.032Z"
+type: "SNIPPET_NOTE"
+folder: "ef2d6ebbfc00bb651888"
+title: "加减时间"
+description: "加减时间"
+snippets: [
+  {
+    name: "加减时间"
+    mode: "Python"
+    content: '''
+      from datetime import timedelta
+      
+      delta = timedelta
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

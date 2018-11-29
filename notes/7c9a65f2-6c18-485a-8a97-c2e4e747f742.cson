@@ -1,5 +1,5 @@
 createdAt: "2018-08-20T02:34:15.764Z"
-updatedAt: "2018-09-03T01:29:40.946Z"
+updatedAt: "2018-11-26T03:04:08.584Z"
 type: "MARKDOWN_NOTE"
 folder: "dfecd6fda1fd6351071c"
 title: "git 命令"
@@ -14,11 +14,22 @@ content: '''
   - 如果要本地跟踪 origin 的master 分支的话
   
   
-      git branch --set-upstream master origin/<branch>
+      git branch --track master origin/master
       git push origin master / git pull origin master
           
       
   - 用了这两条条命令后，就可以直接 `git pull`，`git push` 了
+  
+  
+  > ## 显示颜色
+  > 
+  
+  ```
+  git config --global color.status auto
+  git config --global color.diff auto
+  git config --global color.branch auto
+  git config --global color.interactive auto
+  ```
 '''
 tags: []
 isStarred: false

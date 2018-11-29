@@ -1,0 +1,101 @@
+createdAt: "2018-11-05T05:57:58.134Z"
+updatedAt: "2018-11-05T08:05:57.178Z"
+type: "MARKDOWN_NOTE"
+folder: "6a7407beb9328165acc0"
+title: "基本命令"
+content: '''
+  # 基本命令
+  
+  ps:
+  - redis 是key-value 的数据库，所以每个数据都是一个键值对；
+  - 键的类型是 字符串
+  - 值的类型分为五种
+      - string
+      - hash
+      - list
+      - set
+      - zset
+  
+  #### string:
+  - set key value
+  - get 
+  - incr key  +1
+  - incrby key increment +整数
+  - decr key -1
+  - decrby key increment -整数
+  - append key
+  - strlen
+  
+  #### 键命令:
+  - keys    支持正则
+  - exists  key [key...]
+  - type
+  - del
+  - expire key secends
+  - ttl   查看有效时间
+  
+  #### hash:
+  - hash 用于存储对象，对象的格式为键值对 key (field value)
+  - 
+  - hset key field value
+  - hmset key field value
+  - hget key field
+  - hmget key field [field ...]
+  - hgetall 
+  - hkeys 
+  - hlen
+  - hvals
+  - hexists key field
+  - hdel key field [field ...]
+  - hstrlen key field 
+  
+  #### list:
+  - 列表的元素类型为 string
+  - 按照插入顺序排序
+  - 在列表的头部或尾部添加元素
+  -
+  - lpush
+  - rpush
+  - linsert key before|after pivot value
+  - lset key index value
+  -
+  - lpop
+  - rpop
+  - lrange key start stop
+  - ltrim key start stop 
+  - llen 
+  - lindex key index
+  
+  #### set:
+  - 元素类型为string
+  - 无序集合
+  - 元素具有唯一性，不重复
+  -
+  - sadd
+  - smembers
+  - scard 
+  - 
+  - sinter key [key ......]
+  - sdiff key [key...]
+  - sunion key [key...]
+  - sismember key member
+  
+  
+  #### zset:
+  - 有序集合
+  - 元素为string
+  - 元素具有唯一性，不重复
+  - 每个元素都会关联一个double 类型的score，表示权重，通过权重将元素从小到达排序
+  - 元素的score可以相同
+  -
+  - zadd key score member [score member ...]
+  - zrange key start stop
+  - zcard 
+  - zcount key min max
+  -  zscore key member
+  
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false

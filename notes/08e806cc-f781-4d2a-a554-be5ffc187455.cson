@@ -1,9 +1,123 @@
 createdAt: "2018-06-15T05:19:07.814Z"
-updatedAt: "2018-06-15T05:19:14.642Z"
+updatedAt: "2018-11-13T03:16:32.606Z"
 type: "MARKDOWN_NOTE"
 folder: "87c8bf19ffd2b85c41bc"
 title: "centos 7"
-content: "centos 7"
+content: '''
+  centos 7
+  
+  > #### Centos7 开放端口和关闭防火墙
+  > 
+  #### 永久开放需要的端口
+  ```
+  sudo firewall-cmd --zone=public --add-port=3000/tcp --permanent
+  
+  sudo firewall-cmd --reload
+  ``````
+  #### 检查新的防火墙规则
+      firewall-cmd --list-all
+      
+  >####  centOS 7 自带python2.7 无法使用pip命令 问题解决
+  >
+  
+      yum install python-pip
+  
+  > #### 设置主机名
+  > 
+  ```
+  hostnamectl set-hostname
+  ```
+  >#### 地址配置工具 nmcli
+  >
+  - nmcli device help     
+  - nmcli connection help
+  
+  
+   #### con   --> 配置文件
+  - 显示所有活动连接 
+  nmcli con show
+  - 显示网络链接配置
+   nmcli con show ens33
+   - 添加动态以太网连接
+   nmcli connection add type ethernet con-name <connection-name .> ifname <dev 里看到的设备名称>
+  ⚠️：即使不想设置具体接口，也必须使用 ifname 参数
+      可以指定 ifname "*" ，所有的 device 都可以用这个配置了
+  - 激活以太网链接
+  nmcli con up <con 配置名称>
+  - 添加静态以太网连接
+  nmcli connection add type ethernet con-name connection-name ifname interface-name ip4 address gw4 address
+  - 使用以下命令设定两个 IPv4 DNS 服务器地址：
+  nmcli con mod <con-name con里设置的名> ipv4.dns "8.8.8.8 8.8.4.4"
+   ⚠️注：这样会替换之前设置的 DNS 服务器。
+  使用 `+ipv4.dns` 可以增加 不覆盖
+  - 请使用以下命令激活新的以太网连接：
+  nmcli con up <con里设置的名称> ifname ens33
+  - 使用 nmcli 配置静态路由
+  
+      
+      nmcli connection modify eth0 +ipv4.routes "192.168.122.0/24 10.10.10.1"
+   
+  - 修改连接配置后，需要重新加载配置
+  ```
+  nmcli con reload
+  nmcli con down “system eth0” 可被自动激活 
+  nmcli con up “system eth0”
+      
+  nmcli dev dis eth0 禁用网卡，访止被自动激活
+  ```
+  
+      
+      
+  #### dev   -->  挂载到设备（启用）
+  -  检查这些网络设备及连接的状态：
+  nmcli dev status 
+  - 显示网络接口属性
+   nmcli dev show ens33
+   
+  ### 需要用  
+  ```
+  nmcli con mod test-lab ipv4.dns "192.168.0.1"
+  ```
+  
+  
+  > ### 如何编写 开机启动/后台运行 systemctl 脚本
+  > 
+  #### 复制文件，一个配置文件，一个bin文件
+      
+  ```
+  $ sudo cp frps /usr/local/bin/frps
+  $ sudo mkdir /etc/frp
+  $ sudo cp frps.ini /etc/frp/frps.ini
+  ```
+  #### 编写 FRP SERVICE 文件，以 CENTOS7 为例
+      
+      $ vim /usr/lib/systemd/system/frps.service
+      
+  内容如下
+  ```
+      [Unit]
+  Description=frps
+  After=network.target
+  
+  [Service]
+  TimeoutStartSec=30
+  ExecStart=/usr/local/bin/frps -c /etc/frp/frps.ini
+  ExecStop=/bin/kill $MAINPID
+  
+  [Install]
+  WantedBy=multi-user.target
+  ```
+      
+  #### 启动 FRP 并设置开机启动
+      
+      $ sudo systemctl enable frps
+      $ sudo systemctl start frps
+      $ sudo systemctl status frps
+      
+  > #### btsycn
+      
+      ./btsync --config /etc/btsync/btsync.conf
+'''
 tags: []
 isStarred: false
 isTrashed: false

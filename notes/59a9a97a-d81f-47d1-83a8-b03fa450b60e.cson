@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T04:52:16.784Z"
-updatedAt: "2018-09-01T12:53:46.215Z"
+updatedAt: "2018-09-19T02:33:52.505Z"
 type: "MARKDOWN_NOTE"
 folder: "e55ea9d9468c793e012f"
 title: "mac 相关技巧总结"
@@ -144,7 +144,14 @@ content: '''
       
   
   
-      
+   
+  > ### Mac 开机密码忘记了怎么办：
+  > 
+  - 关机，开机时 按住 cmd + alt + r
+  - 进入联网恢复界面
+  - 进入终端
+  - 输入 `resetpassword` 回车
+  - 输入 apple id 确认后 重置密码
   
   
 '''

@@ -1,0 +1,75 @@
+createdAt: "2018-10-23T02:54:33.708Z"
+updatedAt: "2018-10-23T02:56:33.248Z"
+type: "SNIPPET_NOTE"
+folder: "ad6154a9448de75c2a2e"
+title: "django-filter 多选"
+description: "django-filter 多选"
+snippets: [
+  {
+    name: ""
+    mode: "Python"
+    content: '''
+      class CareerFilter(django_filters.rest_framework.FilterSet):
+          """
+          多选过滤
+          """
+         
+          def address_filter(self, queryset, name, value):
+      
+              if name == "address":
+                  if value == '其他':
+                      city_instance = City.objects.filter(label='ZX')
+                      return queryset.filter(career_city__in=city_instance)
+                  elif value == '全国':
+                      return queryset
+      
+                  else:
+                      city_instance = City.objects.filter(heading=value)
+                      return queryset.filter(career_city__in=city_instance)
+      
+              else:
+                  pass
+      
+          company__industry = django_filters.CharFilter(field_name='company__industry', method='industry_filter', label='行业过滤')
+      
+          def industry_filter(self, queryset, name, value):
+      
+              if name == "company__industry":
+                  if isinstance(value, str):
+                      strlist = value.split('-')
+                      if len(strlist) <= 1:
+                          string = strlist[0]
+                          company_instance = Company.objects.filter(industry__chinese_name=string)
+                          return queryset.filter(company__in=company_instance)
+      
+                      #
+                      # if len(strlist) == 2:
+                      #     first_value = strlist.pop()
+                      #     career_instance = Career.objects.filter(company__industry__chinese_name=first_value)
+                      #     return career_instance.union(Career.objects.filter(company__industry__chinese_name=strlist[0]))
+                      #
+                      # if len(strlist) == 3:
+                      #     first_value = strlist.pop()
+                      #     career_instance = Career.objects.filter(company__industry__chinese_name=first_value)
+                      #     return career_instance.union(Career.objects.filter(company__industry__chinese_name=strlist[0]), Career.objects.filter(company__industry__chinese_name=strlist[1]))
+                      
+                      # 利用参数解构缩减代码
+                      if len(strlist) >=2:
+                          first_value = strlist.pop()
+                          career_instance = Career.objects.filter(company__industry__chinese_name=first_value)
+                          pool = []
+                          for x in strlist:
+                              pool.append(Career.objects.filter(company__industry__chinese_name=x))
+                          return career_instance.union(*pool)
+      
+      
+          class Meta:
+              model = Career
+              fields = ['company__industry',]
+      
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

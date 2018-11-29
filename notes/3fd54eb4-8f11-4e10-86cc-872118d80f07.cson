@@ -1,5 +1,5 @@
 createdAt: "2018-08-21T08:37:10.888Z"
-updatedAt: "2018-08-29T02:27:34.834Z"
+updatedAt: "2018-10-19T10:11:58.169Z"
 type: "MARKDOWN_NOTE"
 folder: "ad6154a9448de75c2a2e"
 title: "orm 整理"
@@ -11,6 +11,33 @@ content: '''
       Career.objects.order_by('?',)[:10]
       
   - order_by() 可以加多条件
+  
+  > #### filter(a = <如果是个queryset>)   要用 `a__in = [queryset]`
+  > 
+  
+  >#### queryset.value() 可以获取到值 结构是 [{},{},{}]
+  >
+      City.objects.filter(is_hot=True).values()
+      
+      
+  > 模拟 python manage.py shell 环境
+  > 
+  
+  ```
+  import os
+  import sys
+  import django
+  
+  # 设置项目启动目录
+  BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+  sys.path.insert(0, BASE_DIR)
+  sys.path.insert(0, os.path.join(BASE_DIR, '../..'))
+  os.environ.setdefault("DJANGO_SETTINGS_MODULE", "serverDev.settings")
+  #模拟 shell 环境
+  django.setup()  
+  
+  from company.models import Company, Career
+  ```
 '''
 tags: []
 isStarred: false

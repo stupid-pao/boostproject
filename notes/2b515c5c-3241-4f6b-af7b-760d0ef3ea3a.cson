@@ -1,0 +1,66 @@
+createdAt: "2018-09-21T09:37:46.385Z"
+updatedAt: "2018-11-13T03:17:40.778Z"
+type: "MARKDOWN_NOTE"
+folder: "87c8bf19ffd2b85c41bc"
+title: "内网穿透工具 frp"
+content: '''
+  # 内网穿透工具 frp
+  
+  
+  [frp/README_zh.md at master · fatedier/frp · GitHub](https://github.com/fatedier/frp/blob/master/README_zh.md#frp-%E7%9A%84%E4%BD%9C%E7%94%A8)
+  
+  > ####  让 frp 和 nginx 一起使用 80 端口
+  > 
+  
+  
+  ```
+  server {
+      listen 80;
+      server_name *.frp.example.com;
+      location / {
+          proxy_pass http://127.0.0.1:8080;
+          proxy_set_header    Host            $host:80;
+          proxy_set_header    X-Real-IP       $remote_addr;
+          proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_hide_header   X-Powered-By;
+      }
+  }
+  ```
+  
+  [使用 frp 实现内网穿透 | Laravel China 社区 - 高品质的 Laravel 和 PHP 开发者社区 3306](https://laravel-china.org/articles/16985)
+  
+  
+  > #### 连公司服务器 ssh命令
+  > 
+  
+      ssh -oPort=6000 root@47.98.255.137
+      
+      
+  > #### 客户端热加载配置文件
+  > 
+      
+      ./frpc reload -c ./frpc.ini
+      ./frpc status -c ./frpc.ini
+      
+      配好systemctl 可以用 systemctl 启动
+      
+  > #### 开启Dashboard
+  > 
+  
+  打开浏览器通过 http://[server_addr]:7500 访问 dashboard 界面，用户名密码默认为 admin  zhixiao2017
+  
+  [http://47.98.255.137:7500/](http://47.98.255.137:7500/)
+  
+  > mysql 配置
+  > 
+  
+  ```
+  [mysql]
+  type = tcp
+  local_port = 3306
+  remote_port = 4406
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

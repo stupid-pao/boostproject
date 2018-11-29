@@ -1,15 +1,55 @@
 createdAt: "2018-07-30T08:02:35.161Z"
-updatedAt: "2018-07-30T08:03:25.239Z"
+updatedAt: "2018-11-02T10:51:24.769Z"
 type: "MARKDOWN_NOTE"
 folder: "7a741dc0d61163d82e36"
 title: "Comfluence"
 content: '''
   # Comfluence 
   
-  > 卸载Confluence
+  > #### 卸载Confluence
   
   - /opt/atlassian/confluence/uninstall
   - rm -rf /opt/atlassian /var/atlassian
+  
+  > #### 解决confluence的乱码问题
+  > 
+  在mysql中输入以下命令：
+   
+      mysql> show variables like 'char%';
+      
+  ```
+  +--------------------------+----------------
+  | Variable_name            | Value
+  +--------------------------+----------------
+  | character_set_client     | gbk
+  | character_set_connection | gbk
+  | character_set_database   | latin1
+  | character_set_filesystem | binary
+  | character_set_results    | gbk
+  | character_set_server     | latin1
+  | character_set_system     | utf8
+  | character_sets_dir       | C:/Program File
+  +--------------------------+----------------
+  8 rows in set (0.00 sec) 
+  ```
+  - 这些参数显示，默认的数据是用latin1保存的，难怪不支持中文。
+  
+  
+      emacs /etc/my.cnf
+      在[mysqld]下 加入 character_set_server=utf8
+  
+  > #### 更改mysql innodb_log_file_size 需要注意：
+  > 
+  
+  - 关闭mysql
+  - /etc/my.conf 的 [mysqld] 下 innodb_log_file_size=2G
+  - 删除 /var/lib/mysql/ib_logfile*
+  - 重启mysql
+  
+  
+  > confluence 备份地址
+  > 
+      /var/atlassian/application-data/confluence/backups
 '''
 tags: []
 isStarred: false

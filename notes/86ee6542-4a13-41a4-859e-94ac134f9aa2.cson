@@ -1,0 +1,41 @@
+createdAt: "2018-10-26T08:02:37.343Z"
+updatedAt: "2018-10-26T08:03:22.885Z"
+type: "SNIPPET_NOTE"
+folder: "ad6154a9448de75c2a2e"
+title: "用 django 的orm 去更新数据库"
+description: "用 django 的orm 去更新数据库"
+snippets: [
+  {
+    name: "用 django 的orm 去更新数据库"
+    mode: "Python"
+    content: '''
+      # -*- coding: utf-8 -*-
+      import os
+      import sys
+      import django
+      
+      
+      BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+      sys.path.insert(0, BASE_DIR)
+      sys.path.insert(0, os.path.join(BASE_DIR, '../..'))
+      os.environ.setdefault("DJANGO_SETTINGS_MODULE", "serverDev.settings")
+      django.setup()
+      
+      from company.models import Company, Career
+      
+      def career_num():
+          companys = Company.objects.all()
+          for company in companys:
+              career_count = Career.objects.filter(company=company).filter(is_stop=False).count()
+              company.career_num = career_count
+              company.save()
+      
+      
+      if __name__ == '__main__':
+          career_num()
+    '''
+  }
+]
+tags: []
+isStarred: false
+isTrashed: false

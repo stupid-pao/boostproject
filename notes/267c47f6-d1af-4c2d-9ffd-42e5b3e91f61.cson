@@ -1,5 +1,5 @@
 createdAt: "2018-06-22T05:48:02.551Z"
-updatedAt: "2018-06-25T09:02:47.198Z"
+updatedAt: "2018-11-22T07:25:00.341Z"
 type: "MARKDOWN_NOTE"
 folder: "ef2d6ebbfc00bb651888"
 title: "包"
@@ -123,6 +123,14 @@ content: '''
        
   
   ***
+  > #### 内置函数
+  > 
+  
+  - eval() 转化字符串为可用代码
+   将字符串str当成有效的表达式来求值并返回计算结果。
+   
+  - vars() 将一个object 转为 dict
+      - 也可以 __dict__
 '''
 tags: []
 isStarred: false

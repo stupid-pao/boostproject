@@ -1,11 +1,18 @@
 createdAt: "2018-06-15T05:04:38.551Z"
-updatedAt: "2018-09-10T08:59:36.308Z"
-
+updatedAt: "2018-11-22T05:34:43.595Z"
 type: "MARKDOWN_NOTE"
 folder: "87c8bf19ffd2b85c41bc"
 title: "通用命令"
 content: '''
   # 通用命令
+  
+  > #### kill 命令
+  > 
+  ```
+  kill -2
+  kill -9
+  pkill <name>      pkill java
+  ```
   
   > #### 查看端口情况命令 :beers:
   
@@ -15,7 +22,7 @@ content: '''
    ***
    
    > #### systemctl :beers:
-  `systemctl start/reload/stop/enable application`
+  `systemctl start/reload/stop/enable/disable application`
    
   用` systemctl ` 启动的，关闭重启 就还要用这个操作，要path/bin 起的 用这个不能操作
   ***
@@ -76,31 +83,56 @@ content: '''
   
       /etc/init.d/<应用名>
   
-  > ### 服务器增加字体
+  > 服务器增加字体
   > 
   [Linux CentOS 7 安装字体库 & 中文字体_Linux教程_Linux公社-Linux系统门户网站](https://www.linuxidc.com/Linux/2016-09/135548.htm)
   
-  > ### 更改 文件所属用户和组
+  > 更改 文件所属用户和组
   > 
       chown -R <user>:<group> <filename> 
       
   - -R  递归
       
-  > ### 更改文件夹权限 775
+  > 更改文件夹权限 775
   > 
       chown -R 775 <filename>
       
-
+  
   > ### 查看网关
   > 
-    
+  
       ip route show
-    
-  > ### 查看dns
+      
+  > ### 查看 dns
   > 
   
       cat /etc/resolv.conf
-
+      
+  > ### [Linux 下挂载新硬盘方法 - CSDN博客](https://blog.csdn.net/zqixiao_09/article/details/51417432)
+   
+  > #### 查看文本前几行或后几行
+  > 
+  
+  ```
+      cat <filename> | grep tail -n 100  后100行
+                       grep head -n 100  前100行
+  ```
+      
+  > #### 查看内存 
+  > 
+      free -h
+      
+  > #### tree 显示乱码
+  > 
+  
+      tree -N
+      
+      
+  > nohup  命令 screen 后台启动
+      
+      
+      
+  > #### tail -f 实时查看
 '''
 tags: []
 isStarred: false

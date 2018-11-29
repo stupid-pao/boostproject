@@ -1,5 +1,5 @@
 createdAt: "2018-08-29T02:24:21.336Z"
-updatedAt: "2018-08-29T02:24:52.041Z"
+updatedAt: "2018-11-23T01:57:07.980Z"
 type: "MARKDOWN_NOTE"
 folder: "5f24c879e0da81cf158f"
 title: "mysql"
@@ -10,6 +10,32 @@ content: '''
   > #### 索引
   > 
   
+  > #### mysql_secure_installation #设置root密码等相关
+  > 
+  
+      mysql_secure_installation 
+      
+      
+  > #### 数据库备份操作
+  > 
+  - 进入mysql库目录
+  
+  
+  cd /var/lib/mysql
+  - 运行mysqldump命令
+  
+  
+  mysqldump -h <ip地址> –uroot –p 数据库名 > ~/Desktop/备份文件.sql;
+  按提示输入mysql的密码
+      
+  > #### 数据恢复
+  连接mysqk，创建数据库
+  
+  退出连接，执行如下命令
+  
+  mysql -uroot –p 数据库名 < ~/Desktop/备份文件.sql
+  根据提示输入mysql密码
+      
 '''
 tags: []
 isStarred: false

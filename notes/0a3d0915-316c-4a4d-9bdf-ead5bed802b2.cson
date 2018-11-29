@@ -1,0 +1,24 @@
+createdAt: "2018-11-15T06:37:04.368Z"
+updatedAt: "2018-11-15T08:02:40.672Z"
+type: "MARKDOWN_NOTE"
+folder: "a7a8cfeade2972e4af52"
+title: "spacemacs"
+content: '''
+  # spacemacs
+  
+  > #### 不能复制的问题解决办法
+  > 
+  
+  如果使用 XShell 等终端的鼠标复制粘贴功能，请在 .spacemacs 配置文件中 user-config 放置 (xterm-mouse-mode -1)
+  
+  
+  
+  > ####  卡住怎么办 
+  > 
+  
+      pkill -SIGUSR2 -i emacs
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false

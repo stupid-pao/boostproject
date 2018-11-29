@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T04:46:53.746Z"
-updatedAt: "2018-08-14T05:36:41.545Z"
+updatedAt: "2018-09-27T01:36:52.557Z"
 type: "MARKDOWN_NOTE"
 folder: "87c8bf19ffd2b85c41bc"
 title: "ssr + bbr  一键脚本"
@@ -21,8 +21,26 @@ content: '''
   ./bbr.sh
   ```
   
+  > ### 新一键脚本
+  > 
   
+  ```
   
+  git clone https://github.com/flyzy2005/ss-fly
+  
+  ss-fly/ss-fly.sh -i <password> <port>
+  
+  # bbr
+  ss-fly/ss-fly.sh -ssr
+  ```
+  ```
+  启动：/etc/init.d/ss-fly start
+  停止：/etc/init.d/ss-fly stop
+  重启：/etc/init.d/ss-fly restart
+  状态：/etc/init.d/ss-fly status
+  
+  修改配置文件：vim /etc/shadowsocks.json
+  ```
 '''
 tags: []
 isStarred: false

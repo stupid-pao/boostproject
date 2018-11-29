@@ -1,5 +1,5 @@
 createdAt: "2018-08-16T03:05:38.973Z"
-updatedAt: "2018-08-29T02:25:10.405Z"
+updatedAt: "2018-10-12T13:22:59.823Z"
 type: "MARKDOWN_NOTE"
 folder: "ef2d6ebbfc00bb651888"
 title: "相关问题"
@@ -22,6 +22,10 @@ content: '''
   
       
       VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+       
+  > ###   __pycache__ 缓存文件
+  > 
+      rm -rf */__pycache__
 '''
 tags: []
 isStarred: false

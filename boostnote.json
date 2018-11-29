@@ -3,7 +3,7 @@
     {
       "key": "7a741dc0d61163d82e36",
       "color": "#1278BD",
-      "name": "Default"
+      "name": "其他"
     },
     {
       "key": "ad6154a9448de75c2a2e",
@@ -64,6 +64,26 @@
       "key": "5f24c879e0da81cf158f",
       "color": "#3FD941",
       "name": "Database"
+    },
+    {
+      "key": "90ff79d45941be1d12b7",
+      "color": "#2BA5F7",
+      "name": "c4d"
+    },
+    {
+      "key": "1f9df15fa6a135e6ca6f",
+      "color": "#30D5C8",
+      "name": "flask"
+    },
+    {
+      "key": "26af1c9430c2430a4f2b",
+      "color": "#FF8E00",
+      "name": "csgo"
+    },
+    {
+      "key": "6a7407beb9328165acc0",
+      "color": "#B013A4",
+      "name": "redis"
     }
   ],
   "version": "1.0"

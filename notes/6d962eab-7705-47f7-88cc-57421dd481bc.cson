@@ -1,0 +1,25 @@
+createdAt: "2018-11-19T07:15:29.527Z"
+updatedAt: "2018-11-23T02:59:31.861Z"
+type: "MARKDOWN_NOTE"
+folder: "ef2d6ebbfc00bb651888"
+title: "ipython"
+content: '''
+  # ipython
+  
+  
+  几个有用的符号
+  
+  ？
+  %pwd
+  %paste
+  %time
+  %timeit
+  %hist    history
+  %pdb
+   %matplotlib
+  _  代表上面那个
+  
+'''
+tags: []
+isStarred: false
+isTrashed: false

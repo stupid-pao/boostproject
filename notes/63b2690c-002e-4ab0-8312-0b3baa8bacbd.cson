@@ -1,0 +1,14 @@
+createdAt: "2018-10-11T03:38:37.715Z"
+updatedAt: "2018-10-11T03:38:55.448Z"
+type: "MARKDOWN_NOTE"
+folder: "7a741dc0d61163d82e36"
+title: "php 本地起服务"
+content: '''
+  # php 本地起服务
+  
+  
+  php -S 0.0.0.0:9000 -t /usr/local/data/www/zentaopms/www/
+'''
+tags: []
+isStarred: false
+isTrashed: false

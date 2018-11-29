@@ -1,0 +1,17 @@
+createdAt: "2018-09-12T02:13:52.866Z"
+updatedAt: "2018-09-12T02:14:30.787Z"
+type: "MARKDOWN_NOTE"
+folder: "7a741dc0d61163d82e36"
+title: "zsh: no matches found"
+content: '''
+  # zsh: no matches found
+  
+  #### 解决方案
+  ```
+  1.在 ~/.zshrc 中加入：setopt no_nomatch 
+  2.执行 source ~/.zshrc
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

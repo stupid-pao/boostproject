@@ -1,5 +1,5 @@
 createdAt: "2018-07-02T07:38:14.383Z"
-updatedAt: "2018-08-30T06:45:37.270Z"
+updatedAt: "2018-09-29T06:55:44.756Z"
 type: "SNIPPET_NOTE"
 folder: "ad6154a9448de75c2a2e"
 title: "drf 代码"
@@ -39,6 +39,9 @@ snippets: [
     name: "drf 中过滤器的定制  -django_filters"
     mode: "Python"
     content: '''
+      
+      ## 自定义 choice 字段
+      
       import django_filters
       #这个Q可以支持表查询，单下划线获取表字段，双下划线获取关联表，
       from django.db.models import Q
@@ -55,6 +58,32 @@ snippets: [
           class Meta:
               model = ItemCategory
               fields = []
+              
+              
+      ## 自定义 charfield 字段
+      
+      
+      class CareerFilter(django_filters.rest_framework.FilterSet):
+      
+          address = django_filters.CharFilter(field_name='address',method='address_filter',label='地点过滤')
+      
+          def address_filter(self, queryset, name, value):
+              if name == "address":
+                  if value == '其他':
+                      city_instance = City.objects.filter(label='zx')
+                      return Career.objects.filter(career_city__in=city_instance)
+      
+                  else:
+                      city_instance = City.objects.filter(heading=value)
+                      return Career.objects.filter(career_city__in=city_instance)
+      
+              else:
+                  pass
+              
+          class Meta:
+              model = Career
+              fields = ['address',]
+      
     '''
   }
   {

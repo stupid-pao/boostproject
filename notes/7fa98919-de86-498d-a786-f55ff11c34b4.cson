@@ -1,5 +1,5 @@
 createdAt: "2018-08-08T07:19:55.556Z"
-updatedAt: "2018-09-07T07:40:13.240Z"
+updatedAt: "2018-10-15T07:03:21.244Z"
 type: "MARKDOWN_NOTE"
 folder: "e55ea9d9468c793e012f"
 title: "mac 命令"
@@ -44,6 +44,9 @@ content: '''
   > 
       diskutil
   
+  > #### 查看 内存占用命令
+  > 
+      memory_pressure
 '''
 tags: []
 isStarred: false

@@ -1,10 +1,10 @@
 createdAt: "2018-06-15T04:08:15.817Z"
-updatedAt: "2018-08-29T02:35:24.059Z"
+updatedAt: "2018-11-06T07:18:25.972Z"
 type: "MARKDOWN_NOTE"
 folder: "ad6154a9448de75c2a2e"
-title: "Django-restframework 框架 整理"
+title: "框架 整理"
 content: '''
-  Django-restframework 框架 整理
+  #  框架 整理
   
   
   - drf 可以通过外键查询相关各种字段 字段名用 `__` 连接 name 和 foriengkey name（在很多情况下这种方式都用的到）
@@ -34,6 +34,9 @@ content: '''
   > #### serializer 获取 request 参数的方法
   
       self.context['request'].query_params
+  > #### serialzier 获取 http头的方法
+   
+      self.context['request'].META
   
   > #### source
   
@@ -81,6 +84,16 @@ content: '''
   ***
   ## View 相关 :beers:
   
+  > ### 用户未登录 报错 403 而不是 401
+  > 
+      
+  ```
+  # view 视图函数里面 ahthentication_class 的顺序问题
+  
+  authentication_classes = (JSONWebTokenAuthentication, SessionAuthentication)
+  
+  JSONWebTokenAuthentication 一定要在 Session 前面 才有效果
+  ```
   
   > #### url请求具体实例 指定参数
   
@@ -121,11 +134,13 @@ content: '''
   ***
   
   
-  ## 报错
+  # 报错
   
   - index out of range
   一般都是数据没查到
   本质： 取为空的数组
+  
+  > utf8 转码错误 一般是涉及到 oss 的url 的读取了  加.url 读取，不然流无法转码
 '''
 tags: []
 isStarred: false

@@ -1,0 +1,15 @@
+createdAt: "2018-11-08T05:40:39.097Z"
+updatedAt: "2018-11-08T05:41:09.352Z"
+type: "MARKDOWN_NOTE"
+folder: "7a741dc0d61163d82e36"
+title: "禅道"
+content: '''
+  # 禅道
+  ```
+  /opt/zbox/zbox -ap 8080 -mp 3307
+  /opt/zbox/zbox start
+  ```
+'''
+tags: []
+isStarred: false
+isTrashed: false

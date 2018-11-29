@@ -1,5 +1,5 @@
 createdAt: "2018-02-05T05:24:21.860Z"
-updatedAt: "2018-06-19T02:40:26.615Z"
+updatedAt: "2018-10-08T05:58:36.914Z"
 type: "SNIPPET_NOTE"
 folder: "7a741dc0d61163d82e36"
 title: "Snippet note example"
@@ -32,4 +32,4 @@ snippets: [
 ]
 tags: []
 isStarred: false
-isTrashed: false
+isTrashed: true

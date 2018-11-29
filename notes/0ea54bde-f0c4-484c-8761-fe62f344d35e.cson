@@ -1,0 +1,19 @@
+createdAt: "2018-11-15T05:26:58.404Z"
+updatedAt: "2018-11-15T07:00:04.416Z"
+type: "MARKDOWN_NOTE"
+folder: "a7a8cfeade2972e4af52"
+title: "编译安装 emacs"
+content: '''
+  # 编译安装 emacs
+  
+  [在CentOS 7.0 系统中安装Emacs 25.1(Install Emacs 25.1 in CentOS 7.0) - 胡晓-Dason - 博客园](http://www.cnblogs.com/dason-hu/articles/5947105.html)
+  
+  依赖
+  sudo yum install gcc* glib* gtk* ncurses* libXpm* giflib* libjpeg* libtiff libpng* -y
+  
+  
+  /configure --prefix=/usr/local/emacs --with-gnutls=no --with-mailutils --with-pop
+'''
+tags: []
+isStarred: false
+isTrashed: false
