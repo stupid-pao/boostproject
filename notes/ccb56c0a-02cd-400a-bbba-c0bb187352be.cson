@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T05:04:38.551Z"
-updatedAt: "2018-11-22T05:34:43.595Z"
+updatedAt: "2019-04-09T02:09:04.517Z"
 type: "MARKDOWN_NOTE"
 folder: "87c8bf19ffd2b85c41bc"
 title: "通用命令"
@@ -19,6 +19,8 @@ content: '''
    `ss -tanlp` 查看所有启动网络端口的情况
    
    `ps aux|grep port/app` 查看某一端口或进程情况
+   mac 用命令：
+  `    ps -ef|grep `
    ***
    
    > #### systemctl :beers:
@@ -133,7 +135,26 @@ content: '''
       
       
   > #### tail -f 实时查看
+  > tailf <name> 也行
+  > 
+  
+  
+  > #### 查看ip地理位置
+  >   curl myip.ipip.net
+  
+  > #### linux远程scp，但是不覆盖已经存在文件的方法
+  > 
+  ```
+  rsync -avz --progress /root/client/   root@202.112.23.12:/home/work/      
+  
+  
+  //将本机的/root/client/拷贝至远程的202.112.23.12:/home/work/目录，--progress可以查看拷贝的过程
+  
+  
+  例子：rsync -avzu --progress /root/client/   root@202.112.23.12:/home/work/     //u选项，指定不覆盖原目录内容
+  ```
 '''
 tags: []
 isStarred: false
 isTrashed: false
+linesHighlighted: []

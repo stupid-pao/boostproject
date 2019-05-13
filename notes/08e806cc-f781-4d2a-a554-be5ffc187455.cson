@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T05:19:07.814Z"
-updatedAt: "2018-11-13T03:16:32.606Z"
+updatedAt: "2018-12-04T08:36:58.180Z"
 type: "MARKDOWN_NOTE"
 folder: "87c8bf19ffd2b85c41bc"
 title: "centos 7"
@@ -45,7 +45,7 @@ content: '''
   - 激活以太网链接
   nmcli con up <con 配置名称>
   - 添加静态以太网连接
-  nmcli connection add type ethernet con-name connection-name ifname interface-name ip4 address gw4 address
+  nmcli connection add type ethernet con-name connection-name ifname interface-name ip4 <address 192.168.0.66/24> gw4 address
   - 使用以下命令设定两个 IPv4 DNS 服务器地址：
   nmcli con mod <con-name con里设置的名> ipv4.dns "8.8.8.8 8.8.4.4"
    ⚠️注：这样会替换之前设置的 DNS 服务器。

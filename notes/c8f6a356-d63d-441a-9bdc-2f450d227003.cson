@@ -1,0 +1,18 @@
+createdAt: "2018-12-05T02:54:00.213Z"
+updatedAt: "2018-12-05T06:04:21.719Z"
+type: "MARKDOWN_NOTE"
+folder: "87c8bf19ffd2b85c41bc"
+title: "安装 mysql"
+content: '''
+  # 安装 mysql
+  
+  
+  [CentOS 7 安装 MySQL - Leo的博客 - CSDN博客](https://blog.csdn.net/lihao21/article/details/80692068)
+  
+  # 删除mysql
+  
+  [Centos7 完全卸载mysql - 简书](https://www.jianshu.com/p/ef58fb333cd6)
+'''
+tags: []
+isStarred: false
+isTrashed: false

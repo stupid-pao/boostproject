@@ -1,5 +1,5 @@
 createdAt: "2018-08-29T02:24:21.336Z"
-updatedAt: "2018-11-23T01:57:07.980Z"
+updatedAt: "2019-04-19T07:58:42.635Z"
 type: "MARKDOWN_NOTE"
 folder: "5f24c879e0da81cf158f"
 title: "mysql"
@@ -29,7 +29,7 @@ content: '''
   按提示输入mysql的密码
       
   > #### 数据恢复
-  连接mysqk，创建数据库
+  连接mysql，创建数据库
   
   退出连接，执行如下命令
   
@@ -40,3 +40,4 @@ content: '''
 tags: []
 isStarred: false
 isTrashed: false
+linesHighlighted: []

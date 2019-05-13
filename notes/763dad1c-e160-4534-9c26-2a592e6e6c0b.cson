@@ -1,10 +1,11 @@
 createdAt: "2018-07-30T08:02:35.161Z"
-updatedAt: "2018-11-02T10:51:24.769Z"
+updatedAt: "2018-12-05T03:27:06.449Z"
 type: "MARKDOWN_NOTE"
 folder: "7a741dc0d61163d82e36"
 title: "Comfluence"
 content: '''
   # Comfluence 
+  > #### [confluence6.9破解汉化 - 吴昊博客](https://blog.whsir.com/post-2997.html)
   
   > #### 卸载Confluence
   
@@ -50,6 +51,10 @@ content: '''
   > confluence 备份地址
   > 
       /var/atlassian/application-data/confluence/backups
+      
+      
+  > 打开破解 软件
+  > java -jar confluence_keygen.jar
 '''
 tags: []
 isStarred: false

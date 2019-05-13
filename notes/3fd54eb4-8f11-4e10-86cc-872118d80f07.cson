@@ -1,5 +1,5 @@
 createdAt: "2018-08-21T08:37:10.888Z"
-updatedAt: "2018-10-19T10:11:58.169Z"
+updatedAt: "2019-04-21T14:26:41.930Z"
 type: "MARKDOWN_NOTE"
 folder: "ad6154a9448de75c2a2e"
 title: "orm 整理"
@@ -15,12 +15,16 @@ content: '''
   > #### filter(a = <如果是个queryset>)   要用 `a__in = [queryset]`
   > 
   
+  > ### __range 获取两个日期之间的过滤
+      Entry.objects.filter(pub_date__range=(start_date, end_date))
+  
   >#### queryset.value() 可以获取到值 结构是 [{},{},{}]
   >
       City.objects.filter(is_hot=True).values()
       
       
-  > 模拟 python manage.py shell 环境
+  > ##### 模拟 python manage.py shell_plus 环境 《需要 django-extensions 模块》
+  > ##### python manage.py show_urls  列出所有url
   > 
   
   ```
@@ -38,7 +42,29 @@ content: '''
   
   from company.models import Company, Career
   ```
+  
+  >#### orm 查询 利用 原始sql  达到以首字母拼音排序
+  > 
+  [Django ORM复杂查询 - 为程序员服务](http://ju.outofmemory.cn/entry/115057)
+  
+  
+  >####  django2.0 on_delete 的参数
+   [django2.0 关联表的必填on_delete参数的含义 - buxianghejiu的博客 - CSDN博客](https://blog.csdn.net/buxianghejiu/article/details/79086011)
+   
+   > #### djago quesrset 按给定list 排序
+   > 
+  
+  [python - Django QuerySet Custom Ordering by ID - Stack Overflow](https://stackoverflow.com/questions/3625641/django-queryset-custom-ordering-by-id)
+  
+  
+  > #### django orm model 字段使用 用一个列表做字段list，还能筛选
+  > 
+  [List Fields — Django-MySQL 2.4.1 documentation](https://django-mysql.readthedocs.io/en/latest/model_fields/list_fields.html)
+  
+  
+  > order_by(*args) 可以多 字段名 ，判断逻辑是 依次（判断不出 就用下一个字段判断）
 '''
 tags: []
 isStarred: false
 isTrashed: false
+linesHighlighted: []

@@ -1,9 +1,14 @@
 createdAt: "2018-10-26T08:02:32.609Z"
-updatedAt: "2018-10-26T08:02:32.609Z"
+updatedAt: "2018-12-11T07:59:36.776Z"
 type: "MARKDOWN_NOTE"
 folder: "ad6154a9448de75c2a2e"
-title: ""
-content: ""
+title: "django 连接多个数据库 配置"
+content: '''
+  # django 连接多个数据库 配置
+  
+  
+  [Multiple databases \\| Django documentation | Django](https://docs.djangoproject.com/en/2.1/topics/db/multi-db/)
+'''
 tags: []
 isStarred: false
 isTrashed: false

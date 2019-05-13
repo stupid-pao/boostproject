@@ -1,5 +1,5 @@
 createdAt: "2018-08-20T02:34:15.764Z"
-updatedAt: "2018-11-26T03:04:08.584Z"
+updatedAt: "2019-04-28T09:33:32.939Z"
 type: "MARKDOWN_NOTE"
 folder: "dfecd6fda1fd6351071c"
 title: "git 命令"
@@ -30,7 +30,25 @@ content: '''
   git config --global color.branch auto
   git config --global color.interactive auto
   ```
+  
+  
+  ```
+  # 查看远程源
+  git remote -v
+  # 更改远程源
+  git remote set-url <master> <origin/master>
+  ```
+  
+  ssh 慢解决办法
+  
+  #### [git clone一个github上的仓库，太慢，经常连接失败，但是github官网流畅访问，为什么？ - 知乎](https://www.zhihu.com/question/27159393)
+  
+  
+  #### [猴子都能懂的GIT入门 \\| 贝格乐（Backlog）](https://backlog.com/git-tutorial/cn/)
+  
+  #### [Learn Git Branching 无敌可视化图解](https://learngitbranching.js.org/?demo)
 '''
 tags: []
 isStarred: false
 isTrashed: false
+linesHighlighted: []

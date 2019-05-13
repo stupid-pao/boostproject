@@ -1,5 +1,5 @@
 createdAt: "2018-11-15T06:37:04.368Z"
-updatedAt: "2018-11-15T08:02:40.672Z"
+updatedAt: "2018-12-27T10:27:53.303Z"
 type: "MARKDOWN_NOTE"
 folder: "a7a8cfeade2972e4af52"
 title: "spacemacs"
@@ -18,6 +18,29 @@ content: '''
   
       pkill -SIGUSR2 -i emacs
   
+  > #### python 代码补全
+  > 
+  
+  ```
+  pip install -i https://pypi.doubanio.com/simple --upgrade "jedi>=0.9.0" "json-rpc>=1.8.1" "service_factory>=0.1.5" flake8 pytest autoflake hy
+  
+  ```
+  > #### pakage 管理工具
+  > 
+  
+  `M-x` `package-list-packages`. Find `cmake-mode` with C-s. Mark for installation with `i` and install with `x`. deleta for `d`. reset for `u`
+  
+  > #### spacemacs 快捷键
+  > 
+  - spe b 
+      - b
+      
+  - spe b
+  
+  - spe p
+  
+  -spe l
+      
 '''
 tags: []
 isStarred: false

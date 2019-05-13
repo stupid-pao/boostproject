@@ -1,5 +1,5 @@
 createdAt: "2018-11-15T01:50:52.732Z"
-updatedAt: "2018-11-15T01:51:18.178Z"
+updatedAt: "2018-12-13T08:02:10.748Z"
 type: "MARKDOWN_NOTE"
 folder: "ef2d6ebbfc00bb651888"
 title: "pandas"
@@ -12,8 +12,8 @@ content: '''
   df = pd.read_excel(path, sheet_name=0)
   df.dtypes     可以先查看表头信息和每一列的数据类型：
   df.loc[0]  读取 行  
-  sheet.shape[0]   总列数
-  sheet.shape[1]   总行数 
+  df.shape[0]   总列数
+  df.shape[1]   总行数 
   ```
 '''
 tags: []

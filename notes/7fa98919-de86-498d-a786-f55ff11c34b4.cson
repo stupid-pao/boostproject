@@ -1,5 +1,5 @@
 createdAt: "2018-08-08T07:19:55.556Z"
-updatedAt: "2018-10-15T07:03:21.244Z"
+updatedAt: "2019-04-28T09:33:23.646Z"
 type: "MARKDOWN_NOTE"
 folder: "e55ea9d9468c793e012f"
 title: "mac 命令"
@@ -47,7 +47,32 @@ content: '''
   > #### 查看 内存占用命令
   > 
       memory_pressure
+      
+  > #### ss -tanl 在mac的命令
+  > 
+      sudo lsof -iTCP -sTCP:LISTEN -n -P
+  ```
+  
+  # Personally I've end up with this simple function in my ~/.bash_profile:
+  
+  listening() {
+      if [ $# -eq 0 ]; then
+          sudo lsof -iTCP -sTCP:LISTEN -n -P
+      elif [ $# -eq 1 ]; then
+          sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+      else
+          echo "Usage: listening [pattern]"
+      fi
+  }
+  
+  ```
+  listening 
+  listening 3306
+  
+  ---
+  
 '''
 tags: []
 isStarred: false
 isTrashed: false
+linesHighlighted: []

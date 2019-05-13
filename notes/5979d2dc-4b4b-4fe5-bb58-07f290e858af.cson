@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T07:53:44.766Z"
-updatedAt: "2018-09-19T05:36:47.907Z"
+updatedAt: "2019-04-16T03:56:18.816Z"
 type: "MARKDOWN_NOTE"
 folder: "ef2d6ebbfc00bb651888"
 title: "python"
@@ -52,7 +52,42 @@ content: '''
   
       conda config --remove-key channels
   ***
+  
+  > dir()  可以列出对象的所有属性
+  > 
+  
+  
+  ***
+  
+  > #### python 装饰器
+  > [理解 Python 装饰器看这一篇就够了 - FooFish-Python之禅](https://foofish.net/python-decorator.html)
+  > 
+  
+  > ### 闭包，装饰器 总结
+  
+  -  闭包
+  作用：
+  1. 保存函数的状态信息，使函数的局部变量信息依然可以保存下来
+  特点：
+  1. 内层变量没有去外层找，能找到则用
+  2. 内侧空间 不可以修改外部变量的值 即 函数局部作用域中直接改变全局变量的值会报错
+  
+  这就是“闭包”的最大的作用——保存局部信息不被销毁。
+  nonlocal关键字的作用：就是让“内部函数”可以修改“外部函数（装饰器）”的局部变量值。
+      
+  
+  > ### django 命令
+  > 
+  
+  ```
+  python taidii/manage.py shell_plus
+  
+  rm -rfv $(find . -name '*.pyc')
+  
+  ```
+  
 '''
 tags: []
 isStarred: false
 isTrashed: false
+linesHighlighted: []

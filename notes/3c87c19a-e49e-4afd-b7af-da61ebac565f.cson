@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T04:08:15.817Z"
-updatedAt: "2018-11-06T07:18:25.972Z"
+updatedAt: "2019-01-15T09:34:07.071Z"
 type: "MARKDOWN_NOTE"
 folder: "ad6154a9448de75c2a2e"
 title: "框架 整理"
@@ -26,6 +26,12 @@ content: '''
   
   ***
   ## serializer 相关的 :beers:
+  
+  > ### serializer里面如何科学的报错：
+  > [Serializer fields - Django REST framework](https://www.django-rest-framework.org/api-guide/fields/#examples)
+  - 先定义 default_error_messages 映射
+  - 再通过 self.fail()  
+  - 
   
   > #### 在serialiser获取当前user
   
