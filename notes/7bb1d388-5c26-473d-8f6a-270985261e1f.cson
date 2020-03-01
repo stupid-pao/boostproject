@@ -1,0 +1,42 @@
+createdAt: "2019-09-25T02:36:20.867Z"
+updatedAt: "2019-09-26T09:42:32.777Z"
+type: "MARKDOWN_NOTE"
+folder: "d59fcbdea1fc5ff9f9db"
+title: "css"
+tags: []
+content: '''
+  # css
+  
+  ### css 属性
+  加粗，倾斜，下划线：
+  ```
+  font-weight: bold;
+  font-style: italic;
+  text-decoration:underline;
+  ```
+  背景颜色、前景色：
+  ```
+  backgroud-color:red;
+  color:red;
+  ```
+  
+  ### css 的两个性质
+  
+  - 继承性： 好的事儿。继承从上到下，哪些能？哪些不能？
+  - 层叠性： 冲突，多个选择器描述了同一个属性，听谁的？
+  
+  ### 盒子模型
+  
+  - div, span, a 都是盒子
+  但是图片， 表单元素一律是文本，他们并不是盒子
+  
+  - 盒子的5个属性
+      - width & height： 内容的宽度，高度
+      - padding： 内边距
+      - border： 边框
+      - margin： 外边距
+      - content: 中间的内容
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

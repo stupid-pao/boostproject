@@ -84,6 +84,46 @@
       "key": "6a7407beb9328165acc0",
       "color": "#B013A4",
       "name": "redis"
+    },
+    {
+      "key": "2573a6230e5269382147",
+      "color": "#30D5C8",
+      "name": "SQL"
+    },
+    {
+      "key": "467df8662e4b21a7bd85",
+      "color": "#30D5C8",
+      "name": "front ent"
+    },
+    {
+      "key": "d59fcbdea1fc5ff9f9db",
+      "color": "#E8D252",
+      "name": "CSS"
+    },
+    {
+      "key": "0e9b0e8d2c02622ed5df",
+      "color": "#30D5C8",
+      "name": "杂项"
+    },
+    {
+      "key": "c59f1336313435919ec3",
+      "color": "#2BA5F7",
+      "name": "english"
+    },
+    {
+      "key": "f57e6f8340c89b520b12",
+      "color": "#30D5C8",
+      "name": "go"
+    },
+    {
+      "key": "3eeee19209032c783352",
+      "color": "#2BA5F7",
+      "name": "neovim"
+    },
+    {
+      "key": "d0e243b91c2586f9951f",
+      "color": "#30D5C8",
+      "name": "tmux"
     }
   ],
   "version": "1.0"

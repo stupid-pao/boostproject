@@ -1,0 +1,32 @@
+createdAt: "2019-12-02T03:45:07.881Z"
+updatedAt: "2019-12-06T09:57:01.465Z"
+type: "MARKDOWN_NOTE"
+folder: "3eeee19209032c783352"
+title: "插件记录"
+tags: []
+content: '''
+  # 插件记录
+  
+  [Linux 下 Neovim 安装与配置 Python 开发环境指南 - jdhao's blog](https://jdhao.github.io/2018/09/05/centos_nvim_install_use_guide/#%E5%AE%89%E8%A3%85-nvim)
+  
+  [使用 neovim 打造一个现代化的编辑器 - Fantasy](http://liaoph.com/modern-vim/)
+  vim-plug
+  
+  fzf
+  :FZF   搜文件名
+  :Ag   搜内容
+  
+  
+  注释 LEADER cc   反注释 LEADER cu
+  
+  刷新当前配置
+  :source %
+  
+  [Vim Awesome](https://vimawesome.com/)
+  
+  coc插件文档
+  [coc.nvim/coc.cnx at master · neoclide/coc.nvim · GitHub](https://github.com/neoclide/coc.nvim/blob/master/doc/coc.cnx)
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

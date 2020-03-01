@@ -1,5 +1,5 @@
 createdAt: "2018-11-15T06:37:04.368Z"
-updatedAt: "2018-12-27T10:27:53.303Z"
+updatedAt: "2019-08-30T09:11:34.365Z"
 type: "MARKDOWN_NOTE"
 folder: "a7a8cfeade2972e4af52"
 title: "spacemacs"
@@ -41,7 +41,232 @@ content: '''
   
   -spe l
       
+  ### switch evil mode
+      <leader> t E
+      M-x evil-emacs-state RET
+      M-x evil-normal-state RET
+      
+  [Emacs key bindings for vim users - scarletsky](https://scarletsky.github.io/2017/08/30/emacs-key-bindings-for-vim-users/)
+  
+  [Spacemacs Org-mode 快捷键中文说明书 \\| ArchCST's Blog](https://archcst.me/201809/spacemacs-org-readme-cn.html)
+  
+  [重拾 spacemacs，来背快捷键吧](https://moevis.cc/zhong-shi-spacemacs-lai-bei-kuai-jie-jian-ba/)
+  
+  [简明 Vim 练级攻略 \\| | 酷 壳 - CoolShell](https://coolshell.cn/articles/5426.html)
+  
+  ##  evil model tutor
+  - dw
+      - delete a word
+  - [number] d object
+      - object
+          - w - from the cursor to the end of the word, including the space
+          - e - from the cursor to the end of the word, NOT including the space
+          - $ - from the cursor to the end of the line.
+  
+  - dd 
+      - delete a whole line
+  - u
+      - undo 
+  
+  - CTRL - R
+      - redo
+  
+  - p 
+      - put the last deletion after the cursor
+  
+  - r
+      - replace and edit(i)
+  - cw
+      - to change part or all of a word 
+  
+  - c [number] object
+      - object
+          - the object are also same, such as w(word), $(end of line) etc...
+          - 
+  - gg
+      - to go to the beginning of a buffer.
+  
+  - G
+      - to move to the end of a buffer.
+  
+  - : [number]
+      - return you to the line you were on before, go to line [number]
+  - 搜索
+      - / + 内容 
+          - 向后搜
+  
+      - ？ + 内容
+          - 向前搜
+  
+      - n 之前的一个， N 之后的一个匹配项
+  - %
+      - to find a matching ),], or }
+  
+  ```
+  :s/old/new
+  :s/old/new/g
+  
+  :#,#s/old/new/g
+  :%s/old/new/g
+  :%s/old/new/gc
+  
+  ```
+  - :![command]
+      - execute shell command
+  
+  - :w [filname]
+      - 新建文件
+  
+  - :[number],[number] w [filename]
+      - 当钱几行导出到新文件
+  - :r [filename]
+      - 导出文件 到当前
+  - o / O
+      - 在下面新起一行 / 在上面新起一行
+  - $ 
+      - 跳到行未
+  
+  - CTRL-a
+      - 跳到行首
+  
+  - ^
+      - 跳到本行的第一个非blank 字符
+  - A
+      - 相当于$ + a
+  - R
+      - 另一种replace 方式，replace more than one character
+  - CTRL - f / CTRL - b
+      - 翻页
+  
+  ### Navigating
+  
+  SPC j b	go back to the previous location (before the jump)
+  SPC j j	initiate avy jump char
+  SPC j w	initiate avy jump word
+  SPC j l	initiate avy jump line
+  
+  SPC t -	lock the cursor at the center of the screen
+  
+  [ e	Move line up
+  ] e Move line down
+  
+  g p	Select pasted text
+  
+  SPC j i jump to a definition in buffer
+  SPC j k jump to next line and indent it using auto-indent rules
+  
+  g d 跳转进去 | dumb-jump-go 更强大 自己定义的 C-c g
+  ' ' 跳出来
+  
+  SPC /  search in project
+  
+  v 可视化选区
+   
+  
+  #### 在当前行上移动光标 `0 ^ $ f F t T , ;`
+  - 0 -> 移动到当前行首
+  - ^ -> 移动到当前非 blank 行首
+  - $ -> 移动到行未
+  - g_ -> 移动到行末非 blank 的位置
+  - fa -> 移动到下一个为a的字符处，fs为移动到下一个为s的位置
+  - t, -> 移到逗号前的第一个字符， 逗号可以换其他字符
+  - 3fa -> 第三次出现a的位置
+  - F 和 T → 和 f 和 t 一样，只不过是相反方向。
+  
+  dt" → 删除所有的内容，直到遇到双引号—— "。
+  
+  
+  [action]a[object] 和 [action]i[object]
+  - action可以是任何的命令，如 d (删除), y (拷贝), v (可以视模式选择)。
+  - object 可能是： w 一个单词， W 一个以空格为分隔的单词， s 一个句字， p 一个段落。也可以是一个特别的字符："、 '、 )、 }、 ]。
+  ##### 块操作
+  - 批量插入
+  `C - v` 开启，选好后按 `I` 输出内容 按`ESC` 确定
+  - 批量在末尾添加
+  `C - v` 开启，选好后按 `A` 输出内容 按`ESC` 确定
+  `v` `V` 也可以开启这个模式  `然后也可以用 I 开启输入模式`
+  批量缩进 `<` `>` 左右缩进
+  
+  - 选中标签内的内容
+      - vit
+      - dit 删除标签内容
+      - vat
+      - dat
+  
+  - 光标移动
+      - H M L
+      - zz 移动到中间 = CTRL l
+          - zb zt
+      - CTRL o | i  上一个/下一个位置
+  
+  - 宏录制  很强大
+      - `qa` `q` `@a` `@@` `10@@`
+  
+  - 去除搜索高亮
+      - SPC - s - c
+  
+  - 选中内容两边加同样的 字符
+      - 选中， s +字符
+  
+  - `{` `}`  按段落上或下
+  
+  如何 跳转到上一个位置？
+  
+  zz 移动当前行到屏幕的中间
+  zt 移动当前行到屏幕的顶端
+  zb 移动当前行到屏幕的底部
+  
+  f[字符] 在当前行中寻找给定字符下次出现的位置。`;` 会继续向前面查找，而 `,` 号会向后面查找
+  
+  - 跳到单词首部 和 尾部(向后跳) b/B 向前跳
+      - w W e E 
+  
+  - 删除到行未
+      - D  / d$
+  
+  - 删到行首
+      - d^ / d0
+      
+  - 一箭双雕
+      - A  = $a
+      - C  = c$  = d$
+      - s  = cl
+      - S  = ^c  = 清空本行，并i
+      - I  = ^i
+      - o
+      - O
+  
+  - 执行 替换
+      - :s/target/replacement
+      - 重复  `&` 
+      
+  - c 相关命令
+      - cw 删除当前单词 并按 i = dwi
+  
+  ### ⚠️ 能使用 `.` 范式的情景
+  
+  - 删除一个 单词的 3中方法
+      - 光标在末尾  
+          - dbx
+          - bdw
+      - 在任何位置
+          - daw (此命令有机会 用 `.` 模式)
+          
+          
+  - 对数字 进行加减
+      - <C - a> +1
+      - <C - x> -1
+      - 10<C - a> +10
+      - ⚠️ 光标可以在任何位置使用
+      
+  
+  - vi{  = viB
+  - vi[  = vib
+  - va{  = vaB
+  - va[  = vab
+  
 '''
 tags: []
-isStarred: false
+isStarred: true
 isTrashed: false
+linesHighlighted: []

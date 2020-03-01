@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T05:04:38.551Z"
-updatedAt: "2019-04-09T02:09:04.517Z"
+updatedAt: "2020-01-13T03:16:12.711Z"
 type: "MARKDOWN_NOTE"
 folder: "87c8bf19ffd2b85c41bc"
 title: "通用命令"
@@ -98,6 +98,10 @@ content: '''
   > 更改文件夹权限 775
   > 
       chown -R 775 <filename>
+  
+  > 文件添加可执行权限
+  > 
+      chmod 775 <filename>
       
   
   > ### 查看网关
@@ -146,12 +150,36 @@ content: '''
   > 
   ```
   rsync -avz --progress /root/client/   root@202.112.23.12:/home/work/      
+  ```
+  
+  > #### scp 使用代理的方法
+  > 
+  ```
+  rsync -av -e "ssh -o 'ProxyCommand nc -X 5 -x 127.0.0.1:1086 %h %p'" /Users/paozi/Downloads/包/wordpress-atom/Atomlab.zip mytest:~/
+  ```
+  > ### ssh 使用代理
+  > 
+  ```
+  ssh -o ProxyCommand="nc -X 5 -x 127.0.0.1:1086 %h %p" mytest
+  ```
   
   
   //将本机的/root/client/拷贝至远程的202.112.23.12:/home/work/目录，--progress可以查看拷贝的过程
   
   
   例子：rsync -avzu --progress /root/client/   root@202.112.23.12:/home/work/     //u选项，指定不覆盖原目录内容
+  ```
+  
+  >### history
+  >
+  [如何在 Linux 中有效地使用 history 命令 \\| Linux Story](https://10.linuxstory.net/how-to-use-history-command-effectively-in-linux/)
+  
+  
+  ### netcat
+  
+  ```
+  nc -nv 45.76.186.59 7000
+  nc -v xiaoqian.tk 7000
   ```
 '''
 tags: []

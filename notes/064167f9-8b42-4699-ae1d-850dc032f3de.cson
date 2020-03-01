@@ -1,0 +1,19 @@
+createdAt: "2019-11-02T16:29:50.398Z"
+updatedAt: "2019-11-02T16:32:04.277Z"
+type: "MARKDOWN_NOTE"
+folder: "0e9b0e8d2c02622ed5df"
+title: "wordpress"
+tags: []
+content: '''
+  # wordpress 
+  
+  安装遇到的坑
+  > wp_remote_post() failed. 
+  > 
+  php.ini 
+  max_execution_time = 600
+  >
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

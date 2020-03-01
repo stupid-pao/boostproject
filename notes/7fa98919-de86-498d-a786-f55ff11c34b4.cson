@@ -1,5 +1,5 @@
 createdAt: "2018-08-08T07:19:55.556Z"
-updatedAt: "2019-04-28T09:33:23.646Z"
+updatedAt: "2020-01-02T01:43:07.478Z"
 type: "MARKDOWN_NOTE"
 folder: "e55ea9d9468c793e012f"
 title: "mac 命令"
@@ -19,10 +19,20 @@ content: '''
   
       top
       
-  > #### 拷贝秘钥内容命令   :beers:
+  ### pbcopy
+  #### 拷贝秘钥内容命令
   ```
   pbcopy < ~/.ssh/id_rsa.pub           
   ```
+  #### linux 命令配合 pbcopy 使用
+  ```
+  $ pwd | pbcopy
+  >/Users/paozi/Documents/taidi/taidiiv2
+  >
+  $ echo "Welcome To OSTechNix!" | pbcopy
+  
+  ```
+  
   linux  用 ```xsel  ```
   
   > #### Time Machine 本地空间占用的问题 :beers:
@@ -70,7 +80,26 @@ content: '''
   listening 3306
   
   ---
+  > #### 耳机不好使
+  >   
+      sudo killall coreaudiod
   
+  
+  > #### 显示 第三方app 命令
+  > 
+  
+      sudo spctl --master-disable
+      
+      
+  > ### 检查网络，端口 的几个命令
+  > 
+  
+  ```
+  1 、 lsof -i :1086
+  2 、curl --socks5 127.0.0.1:1086 ip.gs
+  3 、plutil -p ~/Library/Preferences/com.qiuyuzhou.ShadowsocksX-NG.plist | grep "ServerHost\\|Password\\|Method\\|ServerPort\\|ShadowsocksOn\\|ShadowsocksRunningMode\\|LocalSocks5"
+  4 、 tail -n 20 ~/Library/Logs/ss-local.log
+  ```
 '''
 tags: []
 isStarred: false

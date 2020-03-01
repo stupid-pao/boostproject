@@ -1,9 +1,27 @@
 createdAt: "2018-11-05T05:57:58.134Z"
-updatedAt: "2018-11-05T08:05:57.178Z"
+updatedAt: "2019-08-07T00:50:14.492Z"
 type: "MARKDOWN_NOTE"
 folder: "6a7407beb9328165acc0"
-title: "基本命令"
+title: "通用命令"
 content: '''
+  # 通用命令
+  
+  - keys *  遍历所有 key
+      - 可以写正则
+      - keys he*
+      - keys he[h-l]*
+      - keys ph?
+  - dbsize   计算 key 的总数
+  - exists   检查key 是否存在
+  - del key  # 删除制定 key-value 可以删多个
+      - 删除成功 返回1， 否则返回0
+  
+  - expire key seconds 过期
+  - ttl key  查看key 过期时间
+  - persist key  去掉key 的过期时间
+  - type key  返回key的类型
+  
+  
   # 基本命令
   
   ps:
@@ -99,3 +117,4 @@ content: '''
 tags: []
 isStarred: false
 isTrashed: false
+linesHighlighted: []

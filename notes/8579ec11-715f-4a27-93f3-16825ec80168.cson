@@ -1,0 +1,293 @@
+createdAt: "2019-11-29T07:48:19.984Z"
+updatedAt: "2020-02-12T13:34:25.067Z"
+type: "MARKDOWN_NOTE"
+folder: "f57e6f8340c89b520b12"
+title: "note"
+tags: []
+content: '''
+  # note
+  
+  ## 指针
+  
+  定义：
+  1. 一个指针的值是另一个变量的地址，一个指针对应变量在内存中的存储位置
+  2. 并不是每一个值都有一个内存地址，但是一个变量必然有对应的内存地址
+  3. 通过指针可以直接读或者更新对应变量的值，而不需要知道该变量的名字（如果有的话）
+  
+  ```
+  x := 1
+  p := &x         // p, of type *int, point to x
+  fmt.Println(p)  // "1"
+  
+  *p = 2          // equivalent to x = 2
+  fmt.Println(x)  // "2"
+  ```
+  如果用"var x int" 声明语句声明一个x变量，
+  `&x` 表达式（取x变量的内存地址）将产生一个指向该整数变量的指针，
+  如果 指针名为p，那么可以说"p指针指向变量x"或"p保存的x变量的内存地址"。
+  `*p` 表示对应p指针指向的变量的值,一般*p表达式读取指针指向的变量的值，同时因为 *p 对应一个变量，所以该表达式也可以出现在赋值语句的左边，表示更新指针所指向的变量的值。
+  
+  注意：
+  1. 对于聚合类型每个成员——比如结构体的每个字段、或者是数组的每个元素——也都是对应一个变量，因此可以被取地址。
+  2. 变量有时候被称为可寻址的值。即使变量由表达式临时生成，那么表达式也必须能接受&取地址操作。
+  3. 任何类型的指针的零值都是nil。如果p != nil测试为真，那么p是指向某个有效变量。指针之间也是可以进行相等测试的，只有当它们指向同一个变量或全部是nil时才相等。
+  
+  ```
+  func incr(p *int) int {
+      *p++ // 非常精妙：只是增加p指向的变量的值，并不改变p指针！！！
+      return *p
+  }
+  
+  v := 1
+  incr(&v)              // side effect: v is now 2
+  fmt.Println(incr(&v)) // "3" (and v is 3)
+  ```
+  解释：
+  1. 每一次我们对一个变量取地址，或者复制指针，都是为原变量创建了新的别名。
+  例如 `*p` 就是变量`v`的别名。
+  2. 指针特别有价值的地方就在于我们可以不用名字而访问一个变量，但这是一把双刃剑： 要找到一个变量的访问者并不容易，我们必须知道变量的全部别名。（这是Go语音垃圾回收做的工作）。
+  3. 不仅指针会创建别名，很多其他类型引用也会创建别名，例如slice，map，chan，甚至struct和interface都会创建所引用变量的别名。
+  
+  ## new 函数
+  本质：在堆上开辟一个内存空间
+  1. new 是一个函数，不是关键字。因此可以覆盖定义
+  
+  ```
+  func delta(old, new int) int { return new - old }
+  ```
+  2. new 函数返回一个地址，用于创建变量
+  
+  ```
+  p := new(int)    // p, *int 类型
+  fmt.Println(*p)  // "0"
+  
+  *p = 2        
+  fmt.Println(*p)   // "2"
+  ```
+  以下2个函数有着相同的行为
+  ```
+  func newInt() *int {
+      return new(int)
+  }
+  
+  func newInt() *int {
+      var dummy int
+      return &dummy
+  }
+  
+  ```
+  ### 可赋值性
+  ⚠️函数调用会隐式地将调用参数的值赋值给函数的参数变量，一个返回语句将隐式地将返回操作的值赋值给结果变量，所以说go里面 函数都是值传递
+  
+  ## 作用域
+  
+  先了解什么是语法块：
+  1. 语法块是由花括号包含的一系列语句，语法块内部声明的名字是无法被外部语法块访问的。
+  2. 语法块包含全局语法块，然后是每个包的语法块， 每个for， if，switch 的语法块，每个switch，select 的分支也有语法块。
+  
+  ⚠️Go语言的 for， if，也是存在作用域的，python中是没有的，python 中只有函数有作用域
+  
+  以下代码有3个不同的x变量，因为是定义在不同的词法域中的（但是不是好的编程风格，只做展示用）
+  ```
+  func main() {
+      x := "hello"
+      for _, x := range x {
+          x := x + 'A' - 'a'
+          fmt.Printf("%c", x) // "HELLO" (one letter per iteration)
+      }
+  }
+  ```
+  ⚠️Golang的双引号和反引号都可用于表示一个常量字符串，不同在于：
+  - 双引号用来创建可解析的字符串字面量(支持转义，但不能用来引用多行)
+  - 反引号用来创建原生的字符串字面量，这些字符串可能由多行组成(不支持任何转义序列)，原生的字符串字面量多用于书写多行消息、HTML以及正则表达式
+  - 而单引号则用于表示Golang的一个特殊类型：rune，类似其他语言的byte但又不完全一样，是指：码点字面量（Unicode code point），不做任何转义的原始内容。
+  
+  
+  ## 整型
+  有点难理解 暂时跳过
+  .
+  .
+  .
+  .
+  .
+  
+  ## Slice
+  为什么要要用切片：
+  
+      - 数组的容量固定，不能自动拓展
+      - 值传递，数组作为函数参数时，将整个数组值拷贝一份给型参
+  
+  * 在go语言中，我们几乎可以在所有场景中，使用切片替换数组 *
+  
+  
+  切片的本质：
+      
+      不是一个数组的指针，是一种数据结构体，用来操作数组内部元素
+  
+  
+  数组声明方式
+  one := [3]int{1, 3, 5}
+  two := [...]int{2, 4, 6, 5, 7}
+  切片声明方式
+  sb_list := []string{"1", "3", "5"}
+  
+  
+  
+  ## Map
+  
+  特点：
+  1. 无序哈希表
+  2. map中的所有的key都是相同的类型，所有的value也是相同的类型，但是key，value 可以是不同的类型
+  3. 其中key 必须是支持 == 运算的数据类型，所以可以通过测试key是否相等来判断是否存在。
+  4. 最好不要用浮点型做key，会出现NaN 和任何浮点数都不相等
+  
+  内置的make 函数可以创建一个map：
+  ```
+  ages := make(map[string]int)
+  ```
+  我们也可以用map字面值的语法创建map，同时还可以指定一些最初的key/value：
+  ```
+  ages := map[string]int{
+      "alice":   31,
+      "charlie": 34,
+  }
+  
+  相当于
+  
+  ages := make(map[string]int)
+  ages["alice"] = 31
+  ages["charlie"] = 34
+  ```
+  
+  另一种创建空map的表达式是 `map[string]int{}`
+  
+  删除元素：
+  ```
+  delete(args, "alice")
+  ```
+  key不存在时不会报错：
+  ages["bob"] 失败时将返回0
+  
+  所以有以下操作：
+  ```
+  ages["bob"] = ages["bob"] + 1
+  ages["bob"] += 1
+  ages["bob"] ++
+  
+  ```
+  
+  #### ⚠️ 注意
+  1. 不能对map中的元素去地址，因为可能随着元素数量的增长而重新分配更大的内存空间，从而导致之前的地址无效。
+  2. map类型的灵值是 nil
+  ```
+  var ages map[string]int    //注意声明方式  如果用冒号等号赋值不传值会报语法错误
+  fmt.Println(ages == nil)    // "true"
+  fmt.Println(len(ages) == 0) // "true"
+  ```
+  3. map 上的大部分操作，包括查找，删除，len和range循环都可以安全工作在nil值map上，但是向一个nil值的map存入元素将导致一个panic异常：
+  ```
+  ages["carol"] = 21 // panic: assignment to entry in nil map
+  ```
+  4. map 不能比较，除非和 nil 比较，要判断两个map是否包含相同的key和value需要通过循环实现
+  
+  ```
+  func equal(x, y map[string]int) bool {
+      if len(x) != len(y) {
+          return false
+      }
+      for k, xv := range x {
+          if yv, ok := y[k]; !ok || yv != xv {
+              return false
+          }
+      }
+      return true
+  }
+  ```
+  ⚠️ 我们不能简单地用xv != y[k]判断，那样会导致在判断下面两个map时产生错误的结果：
+  ```
+  // True if equal is written incorrectly.
+  equal(map[string]int{"A": 0}, map[string]int{"B": 42})
+  ```
+  5. go中没有set类型，但是map的key是不能相同的，所以 可以用map 实现类似set的功能？
+  
+  
+  #### feature：
+  1. if ok 连用
+  
+  ```
+  if age, ok := ages["bob"]; !ok { /* ... */ }
+  ```
+  2. 有时候我们需要一个 map 或 set 的 key 是 slice 类型，但是 map 的key 必须是可比较的类型，但是 slice 并不满足这个条件。不过可以通过2个步骤绕过这个限制。 -- 把 slice key 转成 string 类型
+  
+  ```
+  var m = make(map[string]int)
+  
+  func k(list []string) string { return fmt.Sprintf("%q", list) }
+  
+  func Add(list []string)       { m[k(list)]++ }
+  func Count(list []string) int { return m[k(list)] }
+  ```
+  
+  
+  
+  ## struct
+  
+  结构体的声明
+  ```
+  type tree struct {
+      value int
+      left, right *tree
+  }
+  ```
+  结构体赋值
+  ```
+  t = new(tree)
+  t.value = 2
+  
+  ```
+  结构体面值
+  ```
+  type Point struct {X, Y int }
+  
+  一 
+  p := Point{1, 2}
+  二
+  p := Point{X:1, Y:2}
+  ```
+  
+  ⚠️注意
+  1.如果要在函数内部修改结构体的成员的话，用指针传入是必须的，因为go语言中，所有的函数都是值拷贝，函数参数将不再是函数调用时的原始变量
+  2.因为结构通常通过指针处理， 可以用下面的写法初始化并返回一个结构体的地址
+  ```
+  pp := &Point{1, 3}
+  
+  ```
+  等价于
+  ```
+  pp = new(Point)
+  *pp = Point{1, 3}
+  
+  ```
+  
+  结构体的比较
+  如果结构体的全部成员都是可以比较的， 那么结构体也是可以比较的， 就可以使用 == 或者 != 
+  
+  可比较的结构体类型和其他可比较的类型一样， 可以用于map的key类型
+  
+  ```
+  type address struct {
+      hostname string
+      part int
+  }
+  
+  hits := make(map[address]int)
+  hits[address{"golang.org", 443}]++
+  
+  ```
+  
+  
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

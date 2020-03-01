@@ -1,0 +1,16 @@
+createdAt: "2019-08-21T02:09:20.094Z"
+updatedAt: "2019-08-21T02:10:41.686Z"
+type: "MARKDOWN_NOTE"
+folder: "467df8662e4b21a7bd85"
+title: "js 语法"
+tags: []
+content: '''
+  # js 语法
+  
+  
+  - import 相关的解释
+  - [為什麼自己寫的 JavaScript 模組不能直接在 import 解構賦值 (Destructuring Assignment)](https://medium.com/itsoktomakemistakes/javascript-destructing-assignment-8f7df0afa35e)
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,29 @@
+createdAt: "2019-07-15T08:58:14.749Z"
+updatedAt: "2019-08-20T16:02:16.425Z"
+type: "MARKDOWN_NOTE"
+folder: "467df8662e4b21a7bd85"
+title: "npm install -g npm"
+tags: []
+content: '''
+  npm install -g npm
+  yarn upgrade
+  yarn add axios
+  
+  
+  疑问🤔️：
+  - import React, {Component} from 'react';
+  
+  {Component} 这个方式后面继承可以直接写 extend Component 不然需要写 extend React.Component，
+   {} 是原文件做了什么操作了吗？所以可以这样写？
+   
+   
+  脚手架工具使用
+  - yarn
+  
+         yarn create react-app my-app
+      
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

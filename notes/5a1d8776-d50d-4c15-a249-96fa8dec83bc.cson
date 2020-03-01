@@ -1,0 +1,63 @@
+createdAt: "2019-11-21T02:10:32.849Z"
+updatedAt: "2019-11-21T06:47:32.123Z"
+type: "MARKDOWN_NOTE"
+folder: "ef2d6ebbfc00bb651888"
+title: "python 读写 excel文件"
+tags: []
+content: '''
+  # python 读写 excel文件
+  
+  python 读写 excel 需要用到 3个库
+  ```
+  pip install xlrd
+  pip install xlwt
+  pip install xlutils
+  ```
+  
+  ## 读取 excel 文件
+  
+  ```
+  workbook = xlrd.open_workbook('User/paozi/Document/xxx.xlsx')
+  sheet = workbook.sheets()[0]
+  sheet.nrows
+  sheet.ncols
+  sheet.row(0)
+  sheet.col(0)
+  ```
+  
+  命令总结
+  - sheet = excel_file.sheet_by_index(0) # 以索引方式获取，从0开始
+  
+  - sheet = excel_file.sheet_by_name('sheet1') # 以sheet页名称方式获取
+  - rows_num = sheet.nrows # 获取行数
+  
+  - cols_num = sheet.ncols # 获取列数
+  - sheet.row[0][0].value  # 获取第一行第一列 的值
+  - 
+  
+  ## 在 已有excel 的基础上写需要 先copy excel 再写入
+  
+  ```
+  from xlutils.copy import copy
+  copy_workbook = copy(workbook)
+  copy_sheet = copy_workbook.get_sheet(0)
+  copy_sheet.write(0, 0, 'test word')
+  
+  copy_workbook.save('User/paozi/Document/new_xxx.xlsx')
+  ```
+  
+  ## xlwt 写 excel
+  ```
+  import xlwt
+  
+  workbook = xlwt.Workbook()
+  sheet = workbook.add_sheet('sheet_name')
+  sheet.write(0, 0, 'cell_str')
+  
+  workbook.save('name.xlsx')
+  
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

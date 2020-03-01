@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T04:46:53.746Z"
-updatedAt: "2018-09-27T01:36:52.557Z"
+updatedAt: "2019-05-20T01:48:39.529Z"
 type: "MARKDOWN_NOTE"
 folder: "87c8bf19ffd2b85c41bc"
 title: "ssr + bbr  一键脚本"
@@ -41,7 +41,17 @@ content: '''
   
   修改配置文件：vim /etc/shadowsocks.json
   ```
+  
+  ```{
+      "server":"0.0.0.0",
+      "server_port":1024,
+      "local_port":1080,
+      "password":"zhixiao2017",
+      "method":"aes-256-cfb",
+      "timeout":300
+  }```
 '''
 tags: []
 isStarred: false
 isTrashed: false
+linesHighlighted: []

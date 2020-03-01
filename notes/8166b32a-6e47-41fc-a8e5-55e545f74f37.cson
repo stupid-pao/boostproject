@@ -1,5 +1,5 @@
 createdAt: "2018-08-29T02:24:21.336Z"
-updatedAt: "2019-04-19T07:58:42.635Z"
+updatedAt: "2020-02-14T13:24:21.477Z"
 type: "MARKDOWN_NOTE"
 folder: "5f24c879e0da81cf158f"
 title: "mysql"
@@ -15,6 +15,20 @@ content: '''
   
       mysql_secure_installation 
       
+      
+  还有一种方法
+      
+  mysql 可以进入的情况下：
+      
+  1. Open & Edit `/etc/my.cnf` or `/etc/mysql/my.cnf`, depending on your distro.
+  2. Add `skip-grant-tables` under `[mysqld]`
+  3. Restart Mysql
+  4. You should be able to login to mysql now using the below command `mysql -u root -p`
+  5. Run `mysql> flush privileges;`
+  6. Set new password by *`ALTER USER 'root'@'localhost' IDENTIFIED BY 'NewPassword';`*
+  7. Go back to /etc/my.cnf and **remove/comment** skip-grant-tables
+  8. Restart Mysql
+  9. Now you will be able to login with the new password `mysql -u root -p`
       
   > #### 数据库备份操作
   > 

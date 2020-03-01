@@ -1,5 +1,5 @@
 createdAt: "2018-08-21T08:37:10.888Z"
-updatedAt: "2019-04-21T14:26:41.930Z"
+updatedAt: "2019-11-19T07:23:12.390Z"
 type: "MARKDOWN_NOTE"
 folder: "ad6154a9448de75c2a2e"
 title: "orm 整理"
@@ -62,7 +62,92 @@ content: '''
   [List Fields — Django-MySQL 2.4.1 documentation](https://django-mysql.readthedocs.io/en/latest/model_fields/list_fields.html)
   
   
-  > order_by(*args) 可以多 字段名 ，判断逻辑是 依次（判断不出 就用下一个字段判断）
+  > order_by(*args) 可以多字段名 ，判断逻辑是 依次（判断不出 就用下一个字段判断）
+  > 
+  
+  > ### Django 将数据批量插入数据库bulk_create()
+  > 
+  [Django 将数据批量插入数据库bulk_create() - heybob的专栏 - CSDN博客](https://blog.csdn.net/heybob/article/details/50474640)
+  
+  > ### 根据外键对django对象进行分组
+  > [python: 根据外键对django对象进行分组](https://xbuba.com/questions/52869807)
+  
+  ```
+  # 如果你有一个模型 student
+  class Student(models.Model):
+      id=models.AutoField(primary_key=True)
+      parent=models.ForeignKey(parent)
+      name=models.CharField()
+      age=models.IntegerField()
+      
+  # 使用 itertools.groupby
+  from itertools import groupby
+  from operator import attrgetter, itemgetter
+  
+  result = [
+      list(v)
+      for _, v in groupby(Student.objects.order('parent_id'), attrgetter('parent_id'))
+  ]
+  
+  # 如果 想为 parent 对象映射到 student 列表的地方做一个字典：
+  result = {
+      k: list(v)
+      for k, v in groupby(
+          Student.objects.prefetch_related('parent').order('parent_id'),
+          attrgetter('parent'))
+  }
+      
+      
+      
+      
+  ```
+  
+  >### group by date (month, day, year)
+  >
+  [Django: Group by date (day, month, year) - Stack Overflow](https://stackoverflow.com/questions/8746014/django-group-by-date-day-month-year)
+  ```
+  from django.db.models.functions import TruncMonth
+  from django.db.models import Count
+  
+  Sales.objects
+      .annotate(month=TruncMonth('timestamp'))  # Truncate to month and add to select list
+      .values('month')                          # Group By month
+      .annotate(c=Count('id'))                  # Select the count of the grouping
+      .values('month', 'c')                     # (might be redundant, haven't tested) select month and count 
+  Older versions
+  
+  from django.db import connection
+  from django.db.models import Sum, Count
+  
+  truncate_date = connection.ops.date_trunc_sql('month', 'created')
+  qs = Order.objects.extra({'month':truncate_date})
+  report = qs.values('month').annotate(Sum('total'), Count('pk')).order_by('month')
+  ```
+  ```
+  >>> import pytz
+  >>> melb = pytz.timezone('Australia/Melbourne')
+  >>> experiments_per_month = Experiment.objects.annotate(
+  ...    month=TruncMonth('start_datetime', tzinfo=melb)).values('month').annotate(
+  ...    experiments=Count('id'))
+  >>> for exp in experiments_per_month:
+  ...     print(exp['month'], exp['experiments'])
+  ```
+  
+  > ### prefetch_related() & select_related()
+  > 
+  [pythonのdjango select_related 和 prefetch_related() - IT閱讀](https://www.itread01.com/content/1546998184.html)
+  select_related()
+  - 主要针对 一对一或者多对一 进行优化
+  - 优化方式是 join 语句进行优化查询次数
+  - 可以使用 ‘__’ 链接查询，再次访问django 会再次sql查询
+  - 可以使用 depth 指定查询深度，会取指定深度的所有栏位
+  - 可以重复使用 .select_related() 链式查询
+  
+  prefetch_related()
+  - 主要针对 ManyToManyField & ForiegnKey 使用
+  - 优化方式： 分别查询每个表，然后用python 处理他们之间的关系
+  
+  
 '''
 tags: []
 isStarred: false

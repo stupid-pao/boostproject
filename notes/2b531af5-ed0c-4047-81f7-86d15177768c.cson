@@ -1,0 +1,31 @@
+createdAt: "2019-11-19T08:09:18.558Z"
+updatedAt: "2019-11-19T08:27:16.140Z"
+type: "MARKDOWN_NOTE"
+folder: "0e9b0e8d2c02622ed5df"
+title: "hugo 建立一个 blog 在 githubio"
+tags: []
+content: '''
+  # hugo 建立一个 blog 在 githubio
+  
+  - brew install hugo
+  - hugo new site myblog
+  - hugo server -t even --buildDrafts
+  
+  新建一篇叫 read.md 的文章
+  - hugo new post/read.md
+  
+  显示：
+      /Users/paozi/Documents/myblog/myblog/content/post/home.md created
+      
+  
+  生成public 文件
+  
+  ```
+  hugo --theme=even --baseUrl="https://stupid-pao.github.io/" --buildDrafts
+  ```
+  
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

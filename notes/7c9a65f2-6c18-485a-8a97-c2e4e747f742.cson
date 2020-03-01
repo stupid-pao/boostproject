@@ -1,5 +1,5 @@
 createdAt: "2018-08-20T02:34:15.764Z"
-updatedAt: "2019-04-28T09:33:32.939Z"
+updatedAt: "2020-02-18T12:58:38.028Z"
 type: "MARKDOWN_NOTE"
 folder: "dfecd6fda1fd6351071c"
 title: "git 命令"
@@ -19,6 +19,11 @@ content: '''
           
       
   - 用了这两条条命令后，就可以直接 `git pull`，`git push` 了
+  
+  > ## 删除远程分支
+  > 
+  
+  git push origin --delete < branchName >
   
   
   > ## 显示颜色
@@ -43,10 +48,187 @@ content: '''
   
   #### [git clone一个github上的仓库，太慢，经常连接失败，但是github官网流畅访问，为什么？ - 知乎](https://www.zhihu.com/question/27159393)
   
+  ### 解决mac系统git push/git clone代码速度太慢问题
+  [解决mac系统git push/git clone代码速度太慢问题 - 陈锐军的个人空间 - OSCHINA](https://my.oschina.net/Jackcrj/blog/3000464)
+  
+  ```
+  git clone 慢解决方案（不依靠代理）
+  原理： 解决dns 污染即可
+  1. 查找域名对应的 ip 地址，并修改host文件
+  2. nslookup github.global.ssl.fastly.Net
+  3. nslookup github.com
+  4. 把上面2个写入host
+  
+  
+  sudo vim /etc/hosts
+  # /private/etc/hosts
+  
+  在文件末尾填上
+  151.101.72.249 github.global.ssl.fastly.net
+  ```
+  
+  
+  ```
+  git config --global --unset http.proxy
+  git config --global --unset https.proxy
+  ```
+  ```
+  [http "https://github.com"]
+    23  proxy = socks5://127.0.0.1:1086
+    24[https "https://github.com"]
+    25  proxy = socks5://127.0.0.1:1086
+    26[http]
+    27  proxy = socks5://127.0.0.1:1086
+    28[https]
+    29  proxy = socks5://127.0.0.1:1086
+  ```
+  
+  ```
+  vim ~/.ssh/config
+  
+  host github.com
+       user git
+       proxycommand nc -x localhost:1086 %h %p
+  
+  ```
+  
   
   #### [猴子都能懂的GIT入门 \\| 贝格乐（Backlog）](https://backlog.com/git-tutorial/cn/)
   
   #### [Learn Git Branching 无敌可视化图解](https://learngitbranching.js.org/?demo)
+  
+  
+  
+  - 新建分支
+      - git checkout -b 《branch——name》
+  
+  - 删除远程分支
+      - git push origin :[分支名]
+  
+  - 删除 无效submodule
+      - 先 git submodule --init 找出问题文件夹
+      - git rm --cached taidii/gitflow    
+      
+  - 删除未跟踪文件
+     - git clean -f
+     - -nf 可以查看会删除哪些文件    
+  
+  - 连 untracked 的目录也一起删掉
+    - git clean -fd
+    
+  - cherry-pick
+      - pick连续分支
+      - git cherry-pick A3^..A5  => [A3, A5]
+      - 正常 cherry-pick 是前不包，后包的 (a,b]
+  
+  ### stash 相关操作
+  
+  - 把工作区和暂存区的内容保存到进度列表里
+   
+  
+      git stash save “description”
+  
+  - 把工作区和暂存区的所有内容都保存到进度列表里，包括untracked的文件。
+  
+  
+      git stash save -u 'description'
+  
+  - 列出stash里的所有项
+  
+  
+      git stash list
+  
+  - 把进度恢复出来并删除进度列表中的项
+  
+  
+      git stash pop stash@{2}
+  
+  - 只把进度恢复出来，不删除进度列表中的项
+  
+  
+      git stash apply stash@{1}
+  
+  - 丢弃进度列表中的相关项
+  
+  
+      git stash drop stash@{3}
+   ———————————————— 
+  
+  ```
+  
+  Host github.com
+       User git
+       ProxyCommand nc -x localhost:1086 %h %p
+  ```
+  
+  ### git 查看某个 commit 的改动  git diff
+  
+  ```
+  git show COMMIT
+  或
+  git diff COMMIT^
+  ```
+  
+  ```
+  git diff                                       查看尚未暂存的文件更新了哪些部分
+  
+  git diff filename 查看尚未暂存的某个文件更新了哪些
+  
+  git diff –cached                    查看已经暂存起来的文件和上次提交的版本之间的差异
+  
+  git diff –cached filename 查看已经暂存起来的某个文件和上次提交的版本之间的差异
+  
+  git diff ffd98b291e0caa6c33575c1ef465eae661ce40c9 b8e7b00c02b95b320f14b625663fdecf2d63e74c 查看某两个版本之间的差异
+  
+  git diff ffd98b291e0caa6c33575c1ef465eae661ce40c9 --  filename b8e7b00c02b95b320f14b625663fdecf2d63e74c -- filename 查看某两个版本的某个文件之间的差异
+  
+   git diff d63739d03b b759b73 -- centers/rest/views.py
+  ```
+  >### git reset & revert
+  >
+  ```
+  # 回退一个commit
+  git reset HEAD^
+  
+  # 回退一个已经提交的commit
+  git revert HEAD
+  
+  # 回退一个已经提交的 merge
+  git revert -m 1 HEAD
+  还需要再revert 一次
+  git revert <the_revert_commit>
+  ```
+  - linux 回应该如何revert
+  
+  [](https://mirrors.edge.kernel.org/pub/software/scm/git/docs/howto/revert-a-faulty-merge.txt)
+  
+  ## git stash
+  ```
+  git stash list
+  git stash save 'xnxni'
+  git stash pop <stash@{0}>
+  git stash apply <stash@{0}>
+  git stash drop 
+  git stash clear
+  ```
+  
+  ## git log
+  
+  ```
+  # 查看某个文件的变更记录commit， 文件删除了也能用
+  git log -- requirements.txt
+  ```
+  
+  ## git remote
+  添加远程仓库
+  ```
+  git remote add origin git@github.com:stupid-pao/nvim-config.git
+  
+  ```
+  删除远程仓库
+  ```
+  git remote rm origin
+  ```
 '''
 tags: []
 isStarred: false

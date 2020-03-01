@@ -1,0 +1,20 @@
+createdAt: "2019-11-13T07:00:40.180Z"
+updatedAt: "2019-11-13T07:12:20.082Z"
+type: "MARKDOWN_NOTE"
+folder: "ad6154a9448de75c2a2e"
+title: "shell_plus 刷新model"
+tags: []
+content: '''
+   # shell_plus 刷新model
+   
+   python manage.py runserver --ipython
+   In [1]: %load_ext autoreload
+  In [2]: %autoreload 2
+  
+  [python - How to reload modules in django shell? - Stack Overflow](https://stackoverflow.com/questions/3772260/how-to-reload-modules-in-django-shell)
+  
+  [autoreload — IPython 3.2.1 documentation](https://ipython.org/ipython-doc/3/config/extensions/autoreload.html)
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T07:53:44.766Z"
-updatedAt: "2019-04-16T03:56:18.816Z"
+updatedAt: "2020-02-07T04:37:02.081Z"
 type: "MARKDOWN_NOTE"
 folder: "ef2d6ebbfc00bb651888"
 title: "python"
@@ -30,11 +30,19 @@ content: '''
   conda update conda
   conda update --all
   conda clean --all
+  
+  # 升级客户端
+  conda update anaconda-navigator
   ```
   - 新建env
   ```
   conda create --name fuck python=3.6 requests django 
   ```
+  - remove evn
+  ```
+  conda env remove -n ENV_NAME
+  ```
+  
   - 激活/退出
   ```
   source active name
@@ -47,6 +55,9 @@ content: '''
   conda install --name bunnies beautifulsoup4
   
   ```
+  - conda install from requirement.txt
+  [使用conda安装requirement.txt指定的依赖包_Mao_Jonah的博客-CSDN博客](https://blog.csdn.net/Mao_Jonah/article/details/89502380)
+  
   - ## conda 使用原版镜像
   
   

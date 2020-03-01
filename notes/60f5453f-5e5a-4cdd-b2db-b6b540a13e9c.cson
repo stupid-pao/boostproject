@@ -1,0 +1,49 @@
+createdAt: "2019-07-18T14:46:46.542Z"
+updatedAt: "2019-07-18T15:35:02.890Z"
+type: "MARKDOWN_NOTE"
+folder: "467df8662e4b21a7bd85"
+title: "生命周期函数： 指在某一个时刻组件会自动调用执行的函数"
+tags: []
+content: '''
+  生命周期函数： 指在某一个时刻组件会自动调用执行的函数
+  
+  ```
+  挂载 第一次放到页面时
+  
+  // 这个组件要从父组件接收参数
+      // 只要父组件的 rander 函数重新执行了，那么自组件的这个生命周期函数就会被执行
+      // 如果这个组件第一次存在于父组件中， 不会执行
+      // 这个组件之前已经存在于父组件中， 才会执行
+      componentWillReceiveProps(){
+  
+      }
+  
+      //组件在即将挂在到页面时执行
+      componentWillMount(){
+        console.log('componentWillMount')
+      }
+      // 挂在完成时候执行
+      componentDidMount(){
+        console.log('componetDidMount')
+      }
+      // 组件更新前 执行， 返回 布尔值
+      shouldComponentUpdate(){
+        console.log('shouldComponentUpdate')
+      }
+      // shouldComponentUpdate 返回为 true 才执行
+      componentWillUpdate(){
+        console.log('componentWillUpdate')
+      }
+      // render 完成后 执行
+      componentDidUpdate(){
+  
+      }
+      // 这个组件将被页面中剃除的时候 child
+      componentWillUnmount(){
+  
+      }
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

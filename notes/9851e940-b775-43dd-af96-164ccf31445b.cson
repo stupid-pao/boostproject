@@ -1,0 +1,35 @@
+createdAt: "2019-09-10T03:18:55.335Z"
+updatedAt: "2019-09-10T03:20:46.090Z"
+type: "SNIPPET_NOTE"
+folder: "ef2d6ebbfc00bb651888"
+title: "文件转码"
+tags: []
+description: "文件转码"
+snippets: [
+  {
+    linesHighlighted: []
+    name: ""
+    mode: null
+    content: '''
+      # 获取 文件 encode 方式
+      from chardet import detect
+      
+      current_file = '/Users/paozi/Desktop/Python核心技术与实战/1-8/pdf/下载必看.txt'
+      # get file encoding type
+      def get_encoding_type(file):
+          with open(file, 'rb') as f:
+              rawdata = f.read()
+          return detect(rawdata)['encoding']
+      
+      with open(current_file, 'r', encoding = get_encoding_type(current_file), errors='ignore') as f:
+          print(f.read())
+          
+          
+      # 使用 codecs 转码
+      with codecs.open(current_file, 'r', encoding='GBK', errors='ignore') as fdata:
+          print(fdata.read())
+    '''
+  }
+]
+isStarred: false
+isTrashed: false

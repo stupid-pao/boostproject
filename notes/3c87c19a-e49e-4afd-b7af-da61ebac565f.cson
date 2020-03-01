@@ -1,5 +1,5 @@
 createdAt: "2018-06-15T04:08:15.817Z"
-updatedAt: "2019-01-15T09:34:07.071Z"
+updatedAt: "2020-02-07T09:31:22.300Z"
 type: "MARKDOWN_NOTE"
 folder: "ad6154a9448de75c2a2e"
 title: "框架 整理"
@@ -147,7 +147,47 @@ content: '''
   本质： 取为空的数组
   
   > utf8 转码错误 一般是涉及到 oss 的url 的读取了  加.url 读取，不然流无法转码
+  > 
+  
+  django-admin makemessages -d djangojs -l zh_CN
+  
+  django-admin compilemessages
+  
+  编译js。po 用这个命令 | ps: 直接 compilemessage 也行
+  django-admin compilemessages --locale=zh_CN
+  
+  
+  -  django1.5 migratons 命令
+  
+  ```
+  manage.py schemamigration <appname>
+      --initial [for new app]
+      --auto
+  ```
+  
+  ```
+  manage.py migrate // migrate all
+  manage.py migrate <app> // will migrate selected app
+  manage.py migrate <app> <migration name> // migrate app to selected migration name
+  ```
+  >### redirect 重定向使用
+  ```
+  from django.core.urlresolvers import reverse
+  from django.shortcuts import redirec
+  
+  elif self.request.user.hq_account.account_type == HQAccount.GEH_MARKETING:
+  	return redirect(reverse('hq:finance-item-list')
+  ```
+  >### 利用toolbar 查看 export 时间信息
+  >
+  ```
+  #  return前 加上
+      from django.shortcuts import render
+      template_name = 'accounts/login.html'
+      return render(request, template_name, {}
+  ```    
 '''
 tags: []
 isStarred: false
 isTrashed: false
+linesHighlighted: []

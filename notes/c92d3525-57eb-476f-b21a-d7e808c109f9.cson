@@ -1,0 +1,33 @@
+createdAt: "2019-11-08T07:41:38.745Z"
+updatedAt: "2020-01-20T06:12:44.870Z"
+type: "MARKDOWN_NOTE"
+folder: "0e9b0e8d2c02622ed5df"
+title: "vscode 工作区配置"
+tags: []
+content: '''
+  # vscode 工作区配置
+  ```
+  {
+      "python.pythonPath": "/Users/paozi/anaconda/envs/new2.7/bin/python",
+      "files.exclude": {
+          ".idea": true,
+          "**/*.pyc": true,
+          "**/CVS": true,
+          "**/.DS_Store": true,
+          ".vscode": true,
+          "**/.git": true
+      },
+      "python.linting.pylintEnabled": true,
+      "python.linting.enabled": true,
+      "python.linting.pylintArgs": ["--load-plugins", "pylint_django", "--max-line-length=100"]
+  }
+  ```
+  
+  tab 消失配置
+  ```
+  "workbench.editor.showTabs": true
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

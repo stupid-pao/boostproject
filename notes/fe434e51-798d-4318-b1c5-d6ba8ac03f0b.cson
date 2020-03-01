@@ -1,0 +1,74 @@
+createdAt: "2020-02-03T12:53:43.919Z"
+updatedAt: "2020-02-03T12:54:53.585Z"
+type: "MARKDOWN_NOTE"
+folder: "f57e6f8340c89b520b12"
+title: "import  导入模块"
+tags: []
+content: '''
+  # import  导入模块
+  
+  **一 包导入的常规语法**
+  
+  在写Go代码的时候经常用到import这个命令用来导入包文件，看到的方式参考如下：
+  
+  ```go
+     import(
+         "fmt"
+     )
+    //然后在代码里面可以通过如下的方式调用
+    fmt.Println("hello world")
+  ```
+  
+  上面这个fmt是Go语言的标准库，他其实是去GOROOT下去加载该模块，当然Go的import还支持如下两种方式来加载自己写的模块：
+  
+  ```go
+    //相对路径     
+    import   "./test_model"  //当前文件同一目录的test_model目录，但是不建议这种方式import
+    
+    //绝对路径    
+    import   "mygoproject/test_model"  //加载GOPATH/src/mygoproject/test_model模块   
+  ```
+  
+  ## **二其它导包方式**
+  
+  ### **2. 1 点操作**
+  
+  **有时候会看到如下的方式导入包**
+  
+  ```
+  import . “fmt”
+  ```
+  
+  这个点操作的含义就是这个包导入之后在你调用这个包的函数时，你可以省略前缀的包名，也就是前面你调用的
+  
+  ```go
+    fmt.Println(“hello world”)  
+    //可以省略的写成
+    Println(“hello world”)
+  ```
+  
+  ### **2.2 别名操作**
+  
+  **别名操作顾名思义可以把包命名成另一个用起来容易记忆的名字**
+  
+  ```go
+    import( f “fmt” )   
+    //别名操作调用包函数时前缀变成了重命名的前缀，即
+    f.Println(“hello world”)
+  ```
+  
+  ### **2.3 _ 操作**
+  
+  ```go
+    import (
+        "database/sql"
+        "fmt"
+        _ "github.com/go-sql-driver/mysql"
+        "time"
+    )  
+     //_操作其实只是引入该包。当导入一个包时，它所有的init()函数就会被执行，但有些时候并非真的需要使用这些包，
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

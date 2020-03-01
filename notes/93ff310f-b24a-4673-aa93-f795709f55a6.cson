@@ -1,0 +1,29 @@
+createdAt: "2019-06-14T07:00:32.359Z"
+updatedAt: "2019-12-20T08:13:34.501Z"
+type: "MARKDOWN_NOTE"
+folder: "7a741dc0d61163d82e36"
+title: "postman"
+tags: []
+content: '''
+  postman
+  
+  cstrtoken 设置 header ： X-CSRFToken
+  cookie 需要设置 csrftoken=7aHecHBb6uBRIStp90vWH757MiVRilj8;
+  
+  这两个需要同时设定
+  
+  自动将cookie 重的 csrftoken  放入header中
+  [Automatically Set CSRF Token in Postman — Django Tips - By chillar anand](https://hackernoon.com/automatically-set-csrf-token-in-postman-django-tips-c9ec8eb9eb5b)
+  ```
+  var xsrfCookie = postman.getResponseCookie("csrftoken"); postman.setEnvironmentVariable('csrftoken', xsrfCookie.value);
+  
+  ```
+  ```
+  var csrf_token = postman.getResponseCookie("csrftoken").value
+  postman.clearGlobalVariable("csrftoken");
+  postman.setGlobalVariable("csrftoken", csrf_token);
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
