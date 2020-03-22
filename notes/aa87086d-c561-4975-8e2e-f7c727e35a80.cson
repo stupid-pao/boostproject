@@ -1,0 +1,14 @@
+createdAt: "2020-03-12T14:00:29.495Z"
+updatedAt: "2020-03-12T14:00:53.417Z"
+type: "MARKDOWN_NOTE"
+folder: "f57e6f8340c89b520b12"
+title: "go get 慢"
+tags: []
+content: '''
+  # go get 慢
+  
+  go get -u 下不动 加个 -v 就起飞了
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

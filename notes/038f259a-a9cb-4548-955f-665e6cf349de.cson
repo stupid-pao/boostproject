@@ -1,0 +1,37 @@
+createdAt: "2020-03-05T04:02:07.723Z"
+updatedAt: "2020-03-06T01:50:01.177Z"
+type: "MARKDOWN_NOTE"
+folder: "3eeee19209032c783352"
+title: "coc 如何设置项目根目录  source path as root"
+tags: []
+content: '''
+  # coc 如何设置项目根目录  source path as root
+  
+  ```
+  1. :CocList folders
+  then
+  2. set the correct path 
+  3. :CocRestart
+  Save a session file to persist workspaceFolders.
+  
+  ```
+  最后想了一个办法
+  在 :CocLocalConfig 中写入
+  ```
+  {"coc.preferences.rootPatterns": [".vim", ".vscode"]}
+  ```
+  然在想要的目录新建 .vim 保存 coc-local-config
+  ---
+  再次尝试之后发现只要启动vim的时候在想要的子目录就可以识别出来,不需要额外的配置 和vscode 原理一样，真是神奇
+  
+  ---
+  
+  set python interpreter:
+  ```
+  :CocCommand
+  python.setInterpreter
+  ```
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

@@ -1,0 +1,90 @@
+createdAt: "2020-03-11T08:56:04.980Z"
+updatedAt: "2020-03-18T02:27:13.973Z"
+type: "MARKDOWN_NOTE"
+folder: "a7a8cfeade2972e4af52"
+title: "doom emacs"
+tags: []
+content: '''
+  # doom emacs
+  问题：
+  ```
+  cursor in termial 不正常
+  ;; ~/.doom.d/packages.el
+  (package! evil-terminal-cursor-changer)
+  
+  ;; ~/.doom.d/config.el
+  (use-package! evil-terminal-cursor-changer
+    :hook (tty-setup . evil-terminal-cursor-changer-activate))
+  ```
+  
+  ### doom 集成 的evil-snipe模块
+  功能：
+  f 查询可以跳行
+  s 查询可以 输入2个字符，（更精确）
+  
+  
+  ### avy
+  功能：
+  跳转到当前buffer的任何一个单词的位置
+  命令：
+  gs + 空格     ---> 文本边灰色，  然后输入想跳的单词
+  设置全 widow 跳转还是 单window 跳转
+  <space> h v  输入 avy all  然后Toggle 可以改变变量的状态
+  其他：
+  还有很多 多窗口操作，没看懂。。。。。
+  
+  ### evil-multiedit
+  pass
+  
+  ### org-mode
+  开启：M-x orgmode  ,然右下角有org 字样
+  
+  快捷键：
+  tab  折叠
+  shift + tab 折叠全部，显示全部
+  M-return   另起一行，和之前的head 保持一致 （- 和 数字 同样适用）
+  M-j/k   同级别调整顺序
+  
+  关于制作按钮链接：
+      + [[something]]  制作跳转按钮
+  
+      还有一种方式链接到 *的标题的：
+      + something   ， 然后 ve 选中单词 然后 <space> mll 输入想要链接的名something  回车  （还可以link 到 file 之类的）
+  
+      链接到 org 文件的某一标题：
+      mll   文件名后面输入  ::want-line-name   (::line-number  定位到那个文件的某一行)
+      
+      网页链接：
+      直接选中  <space>mll 粘贴链接 回车
+      
+  代码块：
+  <s + tab  生成代码块
+  C-c + C-c 可以执行代码
+  
+  TODO:
+  TODO + 内容    C-return  切换状态
+  <  space> mt  切换各种状态
+  S-左右箭头  各种切换
+  
+  
+  ### <  space> + ;  可以获取各种变量的值
+  
+  
+  ### dumb-jump  跳转定义
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false

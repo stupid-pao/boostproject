@@ -1,0 +1,41 @@
+createdAt: "2020-03-02T06:06:18.634Z"
+updatedAt: "2020-03-02T06:09:36.064Z"
+type: "MARKDOWN_NOTE"
+folder: "d0e243b91c2586f9951f"
+title: "oh my tmux 配置"
+tags: []
+content: '''
+  # oh my tmux 配置
+  适配颜色需要更新的配置：
+  
+  ```
+  1. editing your ~/.tmux.conf.local copy and set tmux_conf_theme_24b_colour=true
+  2. set-option -ga terminal-overrides ",xterm-256color:Tc"
+  ```
+  Verifying：
+  Open up a Tmux session, inside Tmux, the output of `echo $TERM` should be `screen-256color` or `tmux-256color` depending on which term file you choose to use. **But the output definitely should not be `xterm-256color`**.
+  
+  If you have set up all these properly, using the following command on the command line:
+  
+  ```bash
+  awk 'BEGIN{
+      s="/\\\\/\\\\/\\\\/\\\\/\\\\"; s=s s s s s s s s;
+      for (colnum = 0; colnum<77; colnum++) {
+          r = 255-(colnum*255/76);
+          g = (colnum*510/76);
+          b = (colnum*255/76);
+          if (g>255) g = 510-g;
+          printf "\\033[48;2;%d;%d;%dm", r,g,b;
+          printf "\\033[38;2;%d;%d;%dm", 255-r,255-g,255-b;
+          printf "%s\\033[0m", substr(s,colnum+1,1);
+      }
+      printf "\\n";
+  }'
+  ```
+  if everything goes wil, you should be able to see a smooth color band both inside or out side Tmux
+  
+  
+'''
+linesHighlighted: []
+isStarred: false
+isTrashed: false
